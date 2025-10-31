@@ -1,0 +1,355 @@
+.putphp {
+    position:absolute; 
+    top:350px;
+    font-size:18px; 
+    color:#ffffff;
+    }
+    
+    
+    @media (min-width: 1281px){
+      
+      .temoins {
+      
+      display:none;
+      
+    }
+      
+    }
+    
+    
+    .p-texta {
+        padding:20px;
+    }
+    .logo {
+        max-height: 80px !important;
+        content: url(https://evaluation.test.evaluationpropriete.ca/wp-content/uploads/2022/05/Info.png);
+        margin-left: 20px;
+            margin-top: 9px;
+    }
+    .p-email, .p-telephone {
+        margin-bottom: 0px !important;
+    } 
+    .p-email .red, .p-telephone .red
+    {
+        color: #ffffff !important;
+    }
+    .red {
+        font-size: 20px;
+    }
+    .wpcf7-spinner::before {
+        top:8px;
+        left:8px;
+    }
+    .tit_eval_resul p {
+        font-size: 15px;
+        margin-bottom: 40px;
+    }
+    .wpcf7-spinner {
+        margin-top:0px;
+        margin-bottom: 10px;
+        background-color: #ac2925;
+        width: 35px;
+        height: 35px;
+    }
+    #mapsfull {
+        margin-bottom: 60px;
+    }
+    .step1-hide, .gmnoprint, .gm-control-active {
+        display: none !important;
+    }
+    sup {
+        color: #fff;
+        font-size:15px;
+    }
+    .set2 .h1-white-text, .valeur2 .h1-white-text{
+        font-size: 45px;
+    }
+    #locationField {
+        margin-bottom: 15px;
+    }
+    .btn-step-3 {
+        max-width: 360px;
+    }
+    .one-step.done h3 {
+        display: block;
+    }
+    .one-step .fa {
+        padding: 7px !important;
+        font-size: 20px !important;
+        margin: 11px !important;
+    }
+    .active .fa {
+        padding: 15px !important;
+        margin: 0px !important;
+    }
+    .one-step {
+        background-color: rgba(0, 0, 0, 0.9) !important;
+        border-top-left-radius: 0px !important;
+        border-top-right-radius: 0px !important;
+    }
+    .topdd {
+        background-color: rgba(0, 0, 0, 0.6) !important;
+        border-top-left-radius: 0px !important;
+        border-top-right-radius: 0px !important;
+    }
+    .steps .middle-step{
+        margin: 0px 10px !important;
+    }
+    .h1-white-text, .h2-white-text, h3.statuss, .set2 p, .texte-footer{
+        color:#ffffff !important;
+    }
+    .page {
+        background: none !important;
+    }
+    .topdd {
+        border-radius: 0px !important;
+    }
+    .vvvv .topdd, .step2 .row, .last-step .row {
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+    .h2-white-text:before, .h2-white-text:after {
+        display: none !important;
+    }
+    .one-step:not(.active) {
+        background-color: rgba(0, 0, 0, 0.9) !important;
+    }
+    .steps {
+        padding: 0 !important;
+    }
+    .form_above, .wpcf7-email {
+        margin-bottom: 50px !important;
+    }
+    .vvvv, .step2, .last-step {
+        margin-top: 25px;
+        padding: 0 !important;
+    }
+    .btn {
+        border-radius: 0px !important;
+    }
+    .one-step .fa {
+        font-size: 25px;
+    }
+    @media only screen and (min-width:391px) and (max-width:625px) {
+    .btn-step-3 {
+        max-width: 230px!important;
+    }
+        }
+    @media screen and (max-width:767px) {
+        
+        .formulaire {
+        position: relative;
+        top: 50px;
+    
+    }
+        .mobilefooter {
+        position: relative;
+        top: 50px;
+    }
+        
+        .textsousmap {
+        position: relative;
+        top: -50px;
+    }
+    
+        .putphp {
+    position:absolute; 
+    top:250px;
+    font-size:16px; 
+    color:#ffffff;
+    }
+        
+        .container {
+        margin-top: 10px;
+    }
+        .desktop {
+       
+        display: none;
+    }
+        .one-step h3 {
+        padding: 10px 5px;
+        text-align: center;
+        font-size: 11px!important;
+    }
+        
+        
+        .one-step h3 {
+        padding: 10px 5px;
+        text-align: center;
+        font-size: 11px!important;
+    }
+    
+    .forny #msform {
+        max-width: 100%;
+        /* margin: auto; */
+        margin-top: -102px;
+    }
+    
+    .tit_eval_resul {
+        font-size: 14px;
+        font-weight: 600;
+        margin: -19px 0 50px 0;
+        text-align: center;
+    }
+    
+    #mapsfull {
+        margin-bottom: 60px;
+        margin-top: -35px;
+    }
+    
+    .steps {
+        padding-left: 15px;
+        padding-right: 15px;
+        margin-top: -25px;
+    }
+        .vvvv, .step2, .last-step{
+            width: 95%;
+        }
+        #msform {
+            max-width: 100%;
+        }
+        .form_above {
+            padding-right: 0px;
+            padding-left: 0px;
+        }
+        .btn {
+            font-size: 16px !important;
+            margin: 10px 0px !important;
+        }
+    
+        select.options {
+            padding: 8px;
+            border: 1px solid #999;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            color: #000;
+            font-size: 20px;
+            background-color: #fff;
+            width: 275px!important;
+        }
+    }
+    @media screen and (max-width:575px) {
+        .valeur2 .h2-white-text {
+            font-weight: 400;
+            font-size: 19px;
+            margin: 10px;
+        }
+        .set2 .h1-white-text, .valeur2 .h1-white-text{
+            font-size: 45px;
+        }
+        .btn {
+            width:100%;
+        }
+        .btn-step-3 {
+            max-width: 219px;
+        }
+        select.options {
+            padding: 8px;
+            border: 1px solid #999;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            color: #000;
+            font-size: 20px;
+            background-color: #fff;
+            width: 450px!important;
+        }
+    }
+    @media screen and (max-width:568px) 
+    {
+        .set2 .h1-white-text, .valeur2 .h1-white-text{
+            font-size: 20px !important;
+        }
+        .steps .middle-step {
+            margin: 0px 7px !important;
+        }
+        .valeur2 .h2-white-text br {
+            display: none;
+        }
+        .valeur2 .h2-white-text {
+            font-size: 20px;
+            margin-top: 35px;
+        }
+        .one-step {
+            display: block;
+            text-align: center;
+        }
+        .one-step h3 {
+            font-size: 8px;
+        }
+    
+        select.options {
+            padding: 8px;
+            border: 1px solid #999;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            color: #000;
+            font-size: 20px;
+            background-color: #fff;
+            width: 275px!important;
+        }
+    }
+    
+    select.options {
+        padding: 10px;
+        border: 1px solid #999;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+        color: #000;
+        font-size: 20px;
+        background-color: #fff;
+        width: 525px!important;
+    }
+    
+    h3.h2-white-text  {
+        font-size: 20px;
+    
+    }
+    
+    .tit_eval_resul p {
+        font-size: 20px;
+        margin-bottom: 40px;
+    }
+    
+    @media screen and (max-width: 380px) {
+    
+        #optionstep2
+        select.options {
+            padding: 8px;
+            border: 1px solid #999;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            color: #000;
+            font-size: 20px;
+            background-color: #fff;
+            width: 250px!important;
+        }
+    }
+    @media only screen and (max-width: 768px) {
+        #optionstep2 select.options {
+    
+            width: 250px!important;
+        }
+        .btn {
+            margin: 10px;
+        }
+    }
+    @media only screen and (max-width: 450px) {
+        #optionstep2
+        select.options {
+            padding: 8px;
+            border: 1px solid #999;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            color: #000;
+            font-size: 20px;
+            background-color: #fff;
+            width: 250px!important;
+        }
+    }
+    
+    @media (max-width: 576px){
+    .no-mobile-padding {
+        padding-left: 0px;
+        padding-right: 0px;
+        margin-top: -10px;
+    }   }

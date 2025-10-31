@@ -1,0 +1,624 @@
+
+html{
+    background-image: url('/wp-content/uploads/2023/03/evaluation-bg-v3.jpg') !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background-position: top center !important;
+}
+
+html, body{
+    /* height: 96.6vh !important; */
+    min-height: 96.6vh !important;
+    margin-bottom: 50px;
+}  
+
+.page{
+    padding-bottom: 0 !important;    
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    background-color: transparent !important; 
+} 
+
+.cs-header-v23{ 
+    background: rgb(255,255,255); 
+    background: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 90%);
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0px;
+    /* margin-bottom: 30px; */
+}
+
+.cs-logo{
+    width: 250px !important;
+    margin-bottom: 10px;
+}
+
+.cs-step3{
+    padding: 80px 15px 60px !important;
+}
+
+.cs-footer-v23{
+   
+}
+
+.cs-red-text{
+    color: #00aeef;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+.cs-white-text{
+    color: white !important;
+}   
+
+h2:before,
+h2:after{
+    height: 0 !important;
+}
+
+.cs-footer-v23 #slideshow{
+    top: 50px !important;
+    padding: 0;    
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+.step2 .cs-footer-v23 #slideshow{
+    top: 0px !important;
+}
+
+#slideshow { 
+    
+    /* min-width: 580px !important; */
+}
+
+#slideshow > div{
+    padding: 20px 50px 20px 30px !important; 
+    border-radius: 80px !important;
+}
+
+.cs-form-field{
+    top: 0 !important;
+}    
+
+.cs-steps .one-step:first-child{
+  border-radius: 50px 0 0 50px
+}
+
+.cs-steps .one-step:last-child{
+  border-radius: 0px 50px 50px 0px
+}
+
+.cs-steps .one-step:not(.active) h3,
+.cs-steps .one-step:not(.active) i{
+  color: gray;
+  opacity: 0.5;
+}
+
+.cs-steps .cs-completed *{
+    color: #35b736 !important;
+    opacity: 1 !important;
+}
+
+.cs-form-field input{
+    border: 0px !important
+}
+
+.cs-form-field input:first-child{
+  border-radius: 30px 0 0 30px !important;
+}
+
+.cs-form-field input:nth-child(2){
+  border-radius: 0 30px 30px 0 !important;
+}
+
+.wpcf7-form input{
+    border-radius: 30px !important;
+}
+
+.cs-form-field input::placeholder,
+.step2 input::placeholder{
+    opacity: 0.3;
+}
+
+.cs-steps{
+    margin: -120px 10% 20px;
+    max-width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.step2 label{
+    color: white !important;
+    text-align: left;
+}
+
+.step2 .topdd{
+    margin: 60px 3% 0px !important;
+    padding: 80px 15px 80px !important
+}
+
+.wpcf7-select {
+  width: 100% !important;
+  padding: 15px;
+  border-radius: 30px;
+}
+
+.underFieldText{
+  text-align: left;
+  color: white;
+  padding: 0 10px;
+}
+
+@media (min-width: 1281px){
+    .cs-form-field{
+        top: 0 !important;
+    }  
+    
+    #locationField{
+        top: inherit !important;        
+    }
+
+    .wpcf7-form .form-group:nth-child(4),
+.wpcf7-form .form-group:nth-child(5){
+  width: 49%;
+  float: left;
+}
+
+.wpcf7-form .form-group:nth-child(4){
+  margin-right: 2%;
+}
+}
+
+@media (max-width: 1024px) and (min-width: 768px){
+    .cs-steps{
+        margin: -120px 5% 20px;
+        max-width: 90%;
+        min-width: 90%;
+    }
+    
+    .one-step{
+        min-height: 70px;
+    }
+}
+
+@media (max-width: 1024px){
+    .cs-footer-v23{
+    margin-top: 20px;
+        margin-bottom: 40px;
+    }
+    
+    .step1 .cs-footer-v23{
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+}
+
+    .step2 .topdd{
+    padding: 80px 15px 40px !important
+}
+}
+
+
+@media (max-width: 767px){
+html{
+    background-size: inherit !important;
+    }
+    
+    .cs-steps{
+        margin: -120px 0% 30px;
+        max-width: 100%;
+        padding: 0;
+    }
+
+    .one-step{
+        min-height: 100px;
+    }
+
+    .topdd {    
+        padding: 60px 15px 70px !important;
+    }
+
+    .cs-header-v23{
+        margin-bottom: 50px; 
+    }
+
+
+    .cs-form-field input:first-child{
+    border-radius: 30px !important;
+    }
+
+    .cs-form-field input:nth-child(2){
+    border-radius: 30px !important;
+    }
+
+    
+
+}
+
+
+.logo {
+  max-height: 75px !important ;
+}
+.pull-right .breadcrumb {
+  background-color: transparent !important;
+}
+@media only screen and (max-width: 600px) {
+  .logo {
+    max-height: 40px !important ;
+  }
+
+  .topdd{
+    margin-top: 50px !important;
+  }
+  
+  #slideshow > div{
+    padding: 20px 30px 20px 20px !important; 
+    border-radius: 80px !important;
+}
+}
+.slider-section .contact-form .form-control input[type="tel"],
+.slider-section .contact-form .form-control input[type="email"] {
+  display: inline-block;
+  margin-bottom: 13px;
+  background-color: #2d404f;
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  padding: 7px 20px;
+  color: #fff;
+}
+
+p,
+.top-header p,
+.logo-block .call-us p,
+.cart,
+.welcome-section .col-md-8 p,
+.testimonial .carousel-caption h3 span,
+.byline > span,
+.product-section .pagination > li a,
+.prev-next-btn .col-md-2 i,
+.single-product-detail .woocommerce-tabs .nav-tabs > li > a,
+.contact-detail-box > p > a {
+  color: #000;
+}
+
+.welcome-section .col-md-8 p {
+  text-align: justify !important;
+}
+
+/*basic reset*/
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: transparent;
+}
+
+/*form styles*/
+#msform {
+  text-align: center;
+  position: relative;
+  margin-top: 30px;
+}
+
+#msform fieldset {
+  background: white;
+  border: 0 none;
+  border-radius: 0px;
+  box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+  padding: 20px 30px;
+  box-sizing: border-box;
+  width: 80%;
+  margin: 0 10%;
+
+  /*stacking fieldsets above each other*/
+  position: relative;
+}
+
+/*Hide all except first fieldset*/
+#msform fieldset:not(:first-of-type) {
+  display: none;
+}
+
+/*inputs*/
+#msform input,
+#msform textarea {
+  padding: 15px;
+  border-radius: 0px;
+  margin-bottom: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  color: #2c3e50;
+  font-size: 13px;
+}
+
+#msform input:focus,
+#msform textarea:focus {
+  -moz-box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  border: 1px solid #00aeef;
+
+  outline-width: 0;
+  transition: All 0.5s ease-in;
+  -webkit-transition: All 0.5s ease-in;
+  -moz-transition: All 0.5s ease-in;
+  -o-transition: All 0.5s ease-in;
+}
+
+/*buttons*/
+#msform .action-button {
+  width: 100px;
+  background: #00aeef;
+  font-weight: bold;
+  color: white;
+  border: 0 none;
+  border-radius: 25px;
+  cursor: pointer;
+  padding: 10px 5px;
+  margin: 10px 5px;
+}
+
+#msform .action-button:hover,
+#msform .action-button:focus {
+  box-shadow: 0 0 0 2px white, 0 0 0 3px #00aeef;
+}
+
+#msform .action-button-previous {
+  width: 100px;
+  background: #c5c5f1;
+  font-weight: bold;
+  color: white;
+  border: 0 none;
+  border-radius: 25px;
+  cursor: pointer;
+  padding: 10px 5px;
+  margin: 10px 5px;
+}
+
+#msform .action-button-previous:hover,
+#msform .action-button-previous:focus {
+  box-shadow: 0 0 0 2px white, 0 0 0 3px #c5c5f1;
+}
+
+/*headings*/
+.fs-title {
+  font-size: 18px;
+  text-transform: uppercase;
+  color: #2c3e50;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+.fs-subtitle {
+  font-weight: normal;
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+/*progressbar*/
+#progressbar {
+  margin-bottom: 30px;
+  overflow: hidden;
+  /*CSS counters to number the steps*/
+  counter-reset: step;
+}
+
+#progressbar li {
+  list-style-type: none;
+  color: white;
+  text-transform: uppercase;
+  font-size: 9px;
+  width: 33.33%;
+  float: left;
+  position: relative;
+  letter-spacing: 1px;
+}
+
+#progressbar li:before {
+  content: counter(step);
+  counter-increment: step;
+  width: 24px;
+  height: 24px;
+  line-height: 26px;
+  display: block;
+  font-size: 12px;
+  color: #333;
+  background: white;
+  border-radius: 25px;
+  margin: 0 auto 10px auto;
+}
+
+/*progressbar connectors*/
+#progressbar li:after {
+  content: "";
+  width: 100%;
+  height: 2px;
+  background: white;
+  position: absolute;
+  left: -50%;
+  top: 9px;
+  z-index: -1; /*put it behind the numbers*/
+}
+
+#progressbar li:first-child:after {
+  /*connector not needed before the first step*/
+  content: none;
+}
+
+/*marking active/completed steps green*/
+/*The number of the step and the connector before it = green*/
+#progressbar li.active:before,
+#progressbar li.active:after {
+  background: #00aeef;
+  color: white;
+}
+
+/* Not relevant to this form */
+.dme_link {
+  margin-top: 30px;
+  text-align: center;
+}
+.dme_link a {
+  background: #fff;
+  font-weight: bold;
+  color: #00aeef;
+  border: 0 none;
+  border-radius: 25px;
+  cursor: pointer;
+  padding: 5px 25px;
+  font-size: 12px;
+}
+
+.dme_link a:hover,
+.dme_link a:focus {
+  background: #c5c5f1;
+  text-decoration: none;
+}
+
+#street-view {
+  height: 100%;
+}
+
+h2 {
+color: white !important;
+  text-transform: uppercase;
+  font-weight: 300;
+  font-size: 20px;
+  margin-top: 40px;
+  margin-bottom: 30px;
+}
+.topdd { 
+  background:rgba(0, 0, 0, 0.7) !important;
+  border: 2px solid #00aeef;
+  min-height: 350px;
+  margin: 60px 3% -100px;
+  padding: 80px 15px 130px !important;
+}
+.tit_eval_resul {
+  font-size: 18px;
+  font-weight: 400;
+  text-align: center;
+}
+.valeur2 h2 {
+  color: #fff;
+  font-weight: 900;
+}
+#msform .action-button {
+  width: 100px;
+  background: #333;
+  font-weight: bold;
+  color: white;
+  border: 0 none;
+  border-radius: 0px;
+  cursor: pointer;
+  padding: 10px 5px;
+  margin: 10px 5px;
+}
+
+.h3,
+h3 {
+  font-size: 18px;
+}
+.actibit h3 {
+  color: red;
+  font-weight: 900;
+}
+#map {
+  height: 100%;
+}
+#locationField,
+#controls {
+  position: relative;
+  /*  width: 480px;*/
+}
+#autocomplete {
+  top: 0px;
+  left: 0px;
+  width: 99%;
+}
+.label {
+  text-align: right;
+  font-weight: bold;
+  width: 100px;
+  color: #303030;
+  font-family: "Roboto";
+}
+#address {
+  border: 1px solid #000090;
+  background-color: #f0f9ff;
+  width: 480px;
+  padding-right: 2px;
+}
+#address td {
+  font-size: 10pt;
+}
+.field {
+  width: 99%;
+}
+.slimField {
+  width: 80px;
+}
+.wideField {
+  width: 200px;
+}
+#locationField {
+  /* height: 20px;*/
+  margin-bottom: 2px;
+}
+
+#street-view {
+  width: 100%;
+  height: 0;
+  padding: 0 0 83% 0;
+  float: left;
+  position: relative;
+  background: none;
+}
+
+.wpcf7-response-output {
+  background-color: #fff !important;
+}
+
+.wpcf7-spinner{
+    background-color: #c9302c !important;
+    margin-bottom: 30px;
+}
+
+.step2 .slideshow-container{
+  margin-top: 50px;
+  margin-bottom: 0px; 
+}
+
+.texte-footer {
+  font-size: 13px !important;
+  padding: 20px 10px !important;
+  display: block !important;
+  text-align: center !important;
+  margin: 150px 10px 20px !important;
+  text-shadow: 1px 1px 5px black,-1px -1px 5px black;
+}
+
+.step2 .texte-footer {
+    margin: 50px 10px 20px !important;
+}
+
+.wpcf7-form .mc4wp-checkbox label {
+  display: flex !important;
+  font-size: 18px !important;
+}
+.wpcf7-form .mc4wp-checkbox label span {
+  font-size: 14px !important;
+  margin-top: 4px !important;
+  margin-left: 10px !important;
+}
+.wpcf7-form .mc4wp-checkbox label input {
+  width: 20px !important;
+  height: 20px !important;
+}

@@ -1,0 +1,65 @@
+/*
+Theme Name: Search Property - 2023
+Theme URI: lemayconsulting.com
+Author: Lemay Consulting
+Author URI: Lemayconsulting.com
+Description:  Search Property is a new WordPress theme for brokers that want to get extra leads. With this theme, we have presets and different layouts. With drag and drop home page layout manager, we can build many variations of home page layout. We also have ajax cart, wishlist, compare, zoom and fancybox to bring into a modern look of website. Some of amazing features like Revolution Slider, Mega Menu, Visual Composer, Product Tabs & Carousel, Contact Form with Google map will makes your website more attractive.
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: one-column, two-columns, right-sidebar, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, flexible-header, post-formats, sticky-post, threaded-comments
+Text Domain: lemayconsulting
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+@media screen and (min-width:768px) {
+	.hide_on_desktop {
+		display:none;
+	}
+}
+
+
+@media screen and (max-width:767px) {
+	.hide_on_mobile {
+		display:none
+	}
+	
+	#locationField {
+    margin-bottom: 2px;
+    position: relative;
+    /*top: -175px!important;*/
+}
+
+	.testi1 {
+
+    top: -150px!important;
+    position: relative!important;
+}
+
+
+}
+
+@media (max-width:1281px) {
+	
+  #locationField {
+    margin-bottom: 2px;
+    position: relative!important;
+    /*top: -175px!important;*/
+}
+    #slideshow {
+    top: 155px!important;
+}
+}
+
+@media (min-width:1281px) {
+	
+  #locationField {
+    margin-bottom: 2px;
+    position: relative!important;
+    /*top: -175px!important;*/
+}
+    #slideshow {
+    top: 155px!important;
+}
+}

@@ -1,0 +1,680 @@
+<?php
+session_start();
+function empower_scripts_basic()
+{
+  $baseurl = get_template_directory_uri();
+  $baseurl = str_replace("http:", "https:", $baseurl);
+  wp_enqueue_style('bootstrap', $baseurl . '/assets/css/bootstrap.min.css', array(), '0.1.0', 'all');
+  wp_enqueue_style('manual', $baseurl . '/assets/css/manual.css', array(), '0.1.0', 'all');
+  wp_enqueue_style('bootstrap-responsive', $baseurl . '/assets/css/bootstrap-responsive.min.css', array(), '0.1.0', 'all');
+  wp_enqueue_style('font-awesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css', array(), '0.1.0', 'all');
+
+  wp_enqueue_style('extra-styles', get_template_directory_uri() . '/extra-v6.css', array(), filemtime(get_template_directory() . '/extra.css'), false);
+  wp_enqueue_style('extra-styles-immobilier', get_template_directory_uri() . '/extra-immobilier.css', array(), filemtime(get_template_directory() . '/extra-immobilier.css'), false);
+
+  wp_enqueue_style('bootstrapsssdd', $baseurl . '/font.css', array(), '0.1.0', 'all');
+  wp_enqueue_style('slidersssccs', $baseurl . '/assets/css/slider.css', array(), '0.1.0', 'all');
+  wp_enqueue_script('jqueries',  $baseurl . '/assets/js/jquery-3.2.1.min.js', array('jquery'), null, true);
+
+  wp_enqueue_script('bootstrap', $baseurl . '/assets/js/bootstrap.min.js', array('jquery'), null, true);
+  wp_enqueue_script('slidersssjs', $baseurl . '/assets/js/slider.js', array('jquery'), null, true);
+
+  wp_localize_script(
+    'slidersssjs',
+    'ajax_object',
+    array('ajax_url' => admin_url('admin-ajax.php'))
+  );
+
+  wp_enqueue_script('mask', $baseurl . '/assets/js/jquery.mask.min.js', array('jquery'), null, true);
+}
+add_action('wp_enqueue_scripts', 'empower_scripts_basic');
+
+function empower_custom_new_menu()
+{
+  register_nav_menus(
+    array(
+      'my-custom-menu' => __('My Custom Menu'),
+      'extra-menu' => __('Extra Menu')
+    )
+  );
+}
+add_action('init', 'empower_custom_new_menu');
+
+function EmpoweringProWebite_custom_logo_setup()
+{
+  $defaults = array(
+    'height'      => 100,
+    'width'       => 400,
+    'flex-height' => true,
+    'flex-width'  => true,
+    'header-text' => array('site-title', 'site-description'),
+  );
+  add_theme_support('custom-logo', $defaults);
+}
+add_action('after_setup_theme', 'EmpoweringProWebite_custom_logo_setup');
+
+function _remove_script_version($src)
+{
+  $parts = explode('?', $src);
+  return $parts[0];
+}
+add_filter('script_loader_src', '_remove_script_version', 15, 1);
+add_filter('style_loader_src', '_remove_script_version', 15, 1);
+add_theme_support('post-thumbnails');
+
+if (!is_admin()) {
+
+  if (isset($_POST['next']) && !isset($_POST['message'])) {
+
+    if (isset($_POST['mc4wp-ADDRESS'])) {
+      $address = $_POST['mc4wp-ADDRESS'];
+      $unite = $_POST['unite'];
+    } else {
+      $address = $_POST['address'];
+      $unite = $_POST['unite'];
+    }
+
+    if (isset($address) && !empty($address) && !isset($_POST['message'])) {
+
+      add_action('wp_footer', 'send_mail_step_1_javascript');
+
+
+      $address1 = "#" . $unite . " " . $address;
+      $address = str_replace(" ", "+", $address);
+
+      $url = "https://maps.googleapis.com/maps/api/geocode/json?address='.$address.'&key=" . WP_ENV_GOOGLE_API_1;
+      $ch = curl_init();
+      curl_setopt($ch, CURLOPT_URL, $url);
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+      $result = curl_exec($ch);
+      $output        = json_decode($result);
+
+      $lat = $output->results[0]->geometry->location->lat;
+      $long = $output->results[0]->geometry->location->lng;
+
+      //echo $lat;
+      //echo "<br/>";
+      //echo $long;
+    }
+  } elseif (isset($_POST['message'])) {
+    if (isset($_POST['mc4wp-EMAIL'])) {
+      $address = $_POST['mc4wp-ADDRESS'];
+      $unite = $_POST['unite'];
+      $fullname = $_POST['mc4wp-FNAME'];
+      $telephone = $_POST['mc4wp-PHONE'];
+      $email = $_POST['mc4wp-EMAIL'];
+    } else {
+      $address = $_POST['address'];
+      $unite = $_POST['unite'];
+      $fullname = $_POST['first-name'];
+      $telephone = $_POST['telephone'];
+      $email = $_POST['email'];
+    }
+    /* $why=$_POST['why']; */
+
+    $message = "Nom :" . $fullname . " \n Adresse Postal:" . $address . " \n Téléphone :" . $telephone . " \n Adresse Courriel :" . $email  . " \n De : " . $url;
+    $headers[] = 'From: ' . $fullname . '<' . $email . '>';
+
+    foreach ($blogusers as $user) {
+
+      $headers[] = 'Cc: ' . $user->display_name . '<' . $user->user_email . '>';
+      $emails1 = $user->user_email;
+    }
+    wp_mail($emails1, 'Nouvelle application pour une estimation de la valeur immobilière', $message, $headers);
+  }
+  global $post;
+  if (isset($post)) {
+    $addressholder = get_post_meta($post->ID, 'Address1', true);
+    $buttons1 = get_post_meta($post->ID, 'button1', true);
+    $etaps1 = get_post_meta($post->ID, 'Etape1', true);
+    $etaps2 = get_post_meta($post->ID, 'Etape2', true);
+    $etaps3 = get_post_meta($post->ID, 'Etape2', true);
+  }
+
+
+  if (!empty(get_option('etape_label'))) {
+    $etape_label = get_option('etape_label');
+  } else {
+    $etape_label = "Étape";
+  }
+
+
+  if (!empty(get_option('is_mailchimp'))) {
+    $is_mailchimp = get_option('is_mailchimp') == "oui";
+  } else {
+    $is_mailchimp = false;
+  }
+    if (!empty(get_option('logo_personnalise'))) {
+        $logo_personnalise = '<img src="'.get_option('logo_personnalise').'" alt="Logo" class="cs-logo">';
+    } else {
+        $logo_personnalise = '<img src="/wp-content/uploads/2023/03/Info-Immobilier_logo.png" alt="Logo" class="cs-logo">';
+    }
+  if (!empty(get_option('etape_1'))) {
+    $etape_1 = get_option('etape_1');
+  } else {
+    $etape_1 = "Trouvez votre propriété";
+  }
+  if (!empty(get_option('etape_2'))) {
+    $etape_2 = get_option('etape_2');
+  } else {
+    $etape_2 = "Détails de la propriété";
+  }
+  if (!empty(get_option('etape_3'))) {
+    $etape_3 = get_option('etape_3');
+  } else {
+    $etape_3 = "Obtenir le rapport";
+  }
+
+  if (get_option('footer_texte')) {
+    $footer_texte = get_option('footer_texte');
+  } else {
+    $footer_texte = null;
+  }
+
+  if (!empty(get_option('titre_1'))) {
+    $titre_1 = str_replace("\n", "<br>", get_option('titre_1'));
+  }
+  if (!empty(get_option('texte_1'))) {
+    $texte_1 = str_replace("\n", "<br>", get_option('texte_1'));
+  }
+  if (!empty(get_option('label_adresse') && empty($addressholder))) {
+    $label_adresse = str_replace("\n", "<br>", get_option('label_adresse'));
+  } else {
+    $label_adresse = "Entrez l'adresse de votre propriété";
+  }
+  if (!empty(get_option('label_unite'))) {
+    $label_unite = str_replace("\n", "<br>", get_option('label_unite'));
+  } else {
+    $label_unite = "#Unité (facultatif";
+  }
+  if (!empty(get_option('label_button_1')) && empty($buttons1)) {
+    $label_button_1 = str_replace("\n", "<br>", get_option('label_button_1'));
+  } else {
+    $label_button_1 = "Rechercher";
+  }
+
+
+
+  if (empty($etaps1)) {
+    $etaps1 = $etape_label . " 1: <br/>" . $etape_1;
+  }
+  if (empty($etaps2)) {
+    $etaps2 = $etape_label . " 2: <br/>" . $etape_2;
+  }
+  if (empty($etaps3)) {
+    $etaps3 = $etape_label . " 3: <br/>" . $etape_3;
+  }
+
+
+  if (isset($post)) {
+    if (get_post_meta($post->ID, 'titre11', true)) {
+      $titre_2 =   get_post_meta($post->ID, 'titre11', true);
+    }
+    if (get_post_meta($post->ID, 'titre12', true)) {
+      $sous_titre_2 =   get_post_meta($post->ID, 'titre12', true);
+    }
+  }
+  if (!empty(get_option('titre_2')) && empty($titre_2)) {
+    $titre_2 =  get_option('titre_2');
+  } else {
+    $titre_2 = "Nous avons trouv&eacute; votre propri&eacute;t&eacute;!";
+  }
+  if (!empty(get_option('sous_titre_2')) && empty($sous_titre_2)) {
+    $sous_titre_2 = str_replace("\n", "<br>", get_option('sous_titre_2'));
+  } else {
+    $sous_titre_2 = "Dites-nous o&ugrave; vous aimeriez recevoir votre rapport d&#39;&eacute;valuation!";
+  }
+  if (!empty(get_option('politique_2'))) {
+    $politique_2 = str_replace("\n", "<br>", get_option('politique_2'));
+  } else {
+    $politique_2 = "Nous prenons soin de votre vie privée.<br />
+    Vos renseignements personnels sont recueillis afin que nous puissions vous envoyer l'information que vous avez demandé conformément à notre politique de confidentialité.";
+  }
+
+
+  if (isset($post)) {
+    if (get_post_meta($post->ID, 'titre1', true)) {
+      $titre_3 =   get_post_meta($post->ID, 'titre1', true);
+    }
+    if (get_post_meta($post->ID, 'titrtitre2e12', true)) {
+      $texte_3 =   get_post_meta($post->ID, 'titre2', true);
+    }
+  }
+  if (!empty(get_option('titre_3')) && empty($titre_3)) {
+    $titre_3 =  str_replace("\n", "<br>", get_option('titre_3'));
+  } else {
+    $titre_3 = "Merci d'avoir envoyé votre<br/>demande d'évaluation";
+  }
+  if (!empty(get_option('texte_3')) && empty($texte_3)) {
+    $texte_3 = str_replace("\n", "<br>", get_option('texte_3'));
+  } else {
+    $texte_3 = "Un spécialiste de votre secteur communiquera avec vous <br> afin de vous présenter votre rapport d’évaluation.";
+  }
+
+  if (!empty(get_option('pas_bon_courriel'))) {
+    $pas_bon_courriel = " " . get_option('pas_bon_courriel');
+  } else {
+    $pas_bon_courriel = "Assurez-vous que les informations ci-dessus soient les bonnes afin de recevoir votre rapport.
+    <br/><br/>
+    Nous pourrions communiquer avec vous afin d'obtenir des informations manquantes qui nous permettront de vous donner la juste valeur marchande de votre propriété.";
+  }
+
+  if (!empty(get_option('label_courriel'))) {
+    $label_courriel = get_option('label_courriel');
+  } else {
+    $label_courriel = "Courriel";
+  }
+
+  if (!empty(get_option('label_telephone'))) {
+    $label_telephone = get_option('label_telephone');
+  } else {
+    $label_telephone = "Téléphone";
+  }
+
+
+  if (!empty(get_option('label_button_3'))) {
+    $label_button_3 = get_option('label_button_3');
+  } else {
+    $label_button_3 = "Modifier vos informations";
+  }
+}
+
+
+add_action('wpcf7_before_send_mail', function ($cf7) {
+
+  unset($_SESSION['first-name']);
+  unset($_SESSION['email']);
+  unset($_SESSION['telephone']);
+
+  if (isset($_POST['mc4wp-EMAIL'])) {
+    $fullname = $_POST['mc4wp-FNAME'];
+    $telephone = $_POST['mc4wp-PHONE'];
+    $email = $_POST['mc4wp-EMAIL'];
+  } else {
+    $fullname = $_POST['first-name'];
+    $telephone = $_POST['telephone'];
+    $email = $_POST['email'];
+  }
+
+  if (isset($fullname)) {
+    $_SESSION['first-name'] = $fullname;
+  }
+  if (isset($email)) {
+    $_SESSION['email'] = $email;
+  }
+  if (isset($telephone)) {
+    $_SESSION['telephone'] = $telephone;
+  }
+});
+
+
+function send_mail_step_1_javascript()
+{ ?>
+<script type="text/javascript">
+jQuery(document).ready(function($) {
+
+    $('#AddressD').prop('readonly', true);
+
+
+    var data = {
+        'action': 'send_mail_step_1',
+        'address': $('#AddressD').val(),
+        'unite': $("input[name='unite']").val()
+    };
+    // We can also pass the url value separately from ajaxurl for front end AJAX implementations
+    jQuery.post(ajax_object.ajax_url, data, function(response) {
+
+    });
+});
+</script>
+<?php
+}
+
+add_action('wp_ajax_send_mail_step_1', 'send_mail_step_1');
+add_action('wp_ajax_nopriv_send_mail_step_1', 'send_mail_step_1');
+
+
+function send_mail_step_1()
+{
+
+
+  $address = $_POST['address'];
+  $unite = $_POST['unite'];
+
+
+
+  $url = home_url();
+  $partURL = str_replace("https://", "", $url);
+  $partURL = str_replace("http://", "", $partURL);
+  $partURL = str_replace("https://www.", "", $partURL);
+  $partURL = str_replace("http://www.", "", $partURL);
+
+  $message = "Nom :N/A \n Adresse Postal:" . $address . " Unité " . $unite  . " \n Téléphone : N/A \n Adresse Courriel : N/A \n Formulaire étape 2 non complèté \n De : " . $url;
+
+  $headers[] = 'From: Évaluation Propriété <no_reply@' . $partURL . '>';
+
+  $blogusers = get_users(['blog_id' => get_current_blog_id()]);
+
+  foreach ($blogusers as $user) {
+    if (strcmp($user->user_email, 'contact@prositeweb.ca') != 0) {
+      $headers[] = 'Cc: ' . $user->display_name . '<' . $user->user_email . '>';
+      $emails1 = $user->user_email;
+    }
+  }
+
+
+  // add_action('phpmailer_init', 'mailtrap');
+  wp_mail($emails1, 'Estimation de la valeur Marchande étape 1 complèté', $message, $headers);
+  // remove_action('phpmailer_init', 'mailtrap');
+}
+
+/* function mailtrap($phpmailer)
+{
+
+  $phpmailer->isSMTP();
+  $phpmailer->Host = 'smtp.mailtrap.io';
+  $phpmailer->SMTPAuth = true;
+  $phpmailer->Port = 2525;
+  $phpmailer->Username = '597fbbd31f2de5';
+  $phpmailer->Password = 'b7cccf288cb528';
+}
+
+add_action('phpmailer_init', 'mailtrap');
+ */
+
+/**
+ * Registers a new options page under Settings.
+ */
+
+// create custom plugin settings menu
+add_action('admin_menu', 'my_broker_plugin_create_menu');
+
+function my_broker_plugin_create_menu()
+{
+
+  //create new top-level menu
+  add_menu_page('Broker Settings', 'Textes overwrite', 'administrator', __FILE__, 'my_broker_plugin_settings_page', '');
+
+  //call register settings function
+  add_action('admin_init', 'register_my_broker_plugin_settings');
+}
+
+
+function register_my_broker_plugin_settings()
+{
+  //register our settings
+  register_setting('my-broker-plugin-settings-group', 'is_mailchimp');
+  register_setting('my-broker-plugin-settings-group', 'logo_personnalise');
+  register_setting('my-broker-plugin-settings-group', 'etape_label');
+  register_setting('my-broker-plugin-settings-group', 'etape_1');
+  register_setting('my-broker-plugin-settings-group', 'etape_2');
+  register_setting('my-broker-plugin-settings-group', 'etape_3');
+
+  register_setting('my-broker-plugin-settings-group', 'titre_1');
+  register_setting('my-broker-plugin-settings-group', 'texte_1');
+
+  register_setting('my-broker-plugin-settings-group', 'label_adresse');
+  register_setting('my-broker-plugin-settings-group', 'label_unite');
+  register_setting('my-broker-plugin-settings-group', 'label_button_1');
+
+  register_setting('my-broker-plugin-settings-group', 'titre_2');
+  register_setting('my-broker-plugin-settings-group', 'sous_titre_2');
+  register_setting('my-broker-plugin-settings-group', 'politique_2');
+
+
+  register_setting('my-broker-plugin-settings-group', 'titre_3');
+  register_setting('my-broker-plugin-settings-group', 'texte_3');
+  register_setting('my-broker-plugin-settings-group', 'pas_bon_courriel');
+
+  register_setting('my-broker-plugin-settings-group', 'label_button_3');
+
+  register_setting('my-broker-plugin-settings-group', 'label_courriel');
+
+  register_setting('my-broker-plugin-settings-group', 'label_telephone');
+
+  register_setting('my-broker-plugin-settings-group', 'footer_texte');
+}
+
+function my_broker_plugin_settings_page()
+{
+?>
+<div class="wrap">
+    <h1>Textes overwrite</h1>
+
+    <form method="post" action="options.php">
+        <?php settings_fields('my-broker-plugin-settings-group'); ?>
+        <?php do_settings_sections('my-broker-plugin-settings-group'); ?>
+        <table class="form-table">
+            <tr valign="top">
+                <th scope="row">Connecté à Mailchimp * Ne fonctionnera plus avec Hubspot *</th>
+                <td>
+                    Oui : <input type="radio" name="is_mailchimp" value="oui"
+                        <?php echo (get_option('is_mailchimp') == "oui" ? 'checked' : ''); ?> />
+                    Non : <input type="radio" name="is_mailchimp" value="non"
+                        <?php echo (get_option('is_mailchimp') == "non" ? 'checked' : ''); ?> />
+            </tr>
+            <tr valign="top">
+                <th scope="row">URL Logo personnalisé</th>
+                <td>
+                    <input type="text" name="logo_personnalise" placeholder="https://..." value="<?php echo esc_attr(get_option('logo_personnalise')); ?>" />
+                </td>
+            </tr>            
+            <tr valign="top">
+                <th scope="row">Libellé "Étape"</th>
+                <td><input type="text" name="etape_label" value="<?php echo esc_attr(get_option('etape_label')); ?>" />
+                </td>
+            </tr>
+            <tr valign="top">
+                <th scope="row">Étape 1</th>
+                <td><input type="text" name="etape_1" value="<?php echo esc_attr(get_option('etape_1')); ?>" /></td>
+            </tr>
+            <tr valign="top">
+                <th scope="row">Étape 2</th>
+                <td><input type="text" name="etape_2" value="<?php echo esc_attr(get_option('etape_2')); ?>" /></td>
+            </tr>
+            <tr valign="top">
+                <th scope="row">Étape 3</th>
+                <td><input type="text" name="etape_3" value="<?php echo esc_attr(get_option('etape_3')); ?>" /></td>
+            </tr>
+            <tr valign="top">
+                <th scope="row">
+                    <hr>
+                </th>
+                <td>
+                    <hr>
+                </td>
+            </tr>
+            <tr valign="top">
+                <th scope="row">Étape 1</th>
+            </tr>
+            <tr valign="top">
+                <th scope="row">Titre</th>
+                <td><textarea style="width:100%;"
+                        name="titre_1"><?php echo esc_attr(get_option('titre_1')); ?></textarea></td>
+            </tr>
+
+            <tr valign="top">
+                <th scope="row">Texte</th>
+                <td><textarea style="width:100%;"
+                        name="texte_1"><?php echo esc_attr(get_option('texte_1')); ?></textarea></td>
+            </tr>
+
+            <tr valign="top">
+                <th scope="row">Champ adresse<br />(Ex: Entez votre adresse)</th>
+                <td><input type="text" name="label_adresse"
+                        value="<?php echo esc_attr(get_option('label_adresse')); ?>" /></td>
+            </tr>
+
+            <tr valign="top">
+                <th scope="row">Champ unité<br />(Ex: #Unité (facultatif))</th>
+                <td><input type="text" name="label_unite" value="<?php echo esc_attr(get_option('label_unite')); ?>" />
+                </td>
+            </tr>
+
+            <tr valign="top">
+                <th scope="row">Bouton<br />(Ex: Rechercher )</th>
+                <td><input type="text" name="label_button_1"
+                        value="<?php echo esc_attr(get_option('label_button_1')); ?>" /></td>
+            </tr>
+
+            <tr valign="top">
+                <th scope="row">
+                    <hr>
+                </th>
+                <td>
+                    <hr>
+                </td>
+            </tr>
+            <tr valign="top">
+                <th scope="row">Étape 2</th>
+            </tr>
+            <tr valign="top">
+                <th scope="row">Titre</th>
+                <td><input type="text" name="titre_2" value="<?php echo esc_attr(get_option('titre_2')); ?>" /></td>
+            </tr>
+            <tr valign="top">
+                <th scope="row">Sous titre</th>
+                <td><input type="text" name="sous_titre_2"
+                        value="<?php echo esc_attr(get_option('sous_titre_2')); ?>" /></td>
+            </tr>
+            <tr valign="top">
+                <th scope="row">Politique privé</th>
+                <td><textarea style="width:100%;"
+                        name="politique_2"><?php echo esc_attr(get_option('politique_2')); ?></textarea></td>
+            </tr>
+
+
+            <tr valign="top">
+                <th scope="row">
+                    <hr>
+                </th>
+                <td>
+                    <hr>
+                </td>
+            </tr>
+            <tr valign="top">
+                <th scope="row">Étape 3</th>
+            </tr>
+            <tr valign="top">
+                <th scope="row">Titre</th>
+                <td><textarea style="width:100%;"
+                        name="titre_3"><?php echo esc_attr(get_option('titre_3')); ?></textarea></td>
+            </tr>
+            <tr valign="top">
+                <th scope="row">Texte</th>
+                <td><textarea style="width:100%;"
+                        name="texte_3"><?php echo esc_attr(get_option('texte_3')); ?></textarea></td>
+            </tr>
+            <tr valign="top">
+                <th scope="row">Texte "Pas bonne infos"<br>(Ex: Assurez-vous que les informations ci-dessus soient les
+                    bonnes afin de recevoir votre rapport.</th>
+                <td><textarea style="width:100%;"
+                        name="pas_bon_courriel"><?php echo esc_attr(get_option('pas_bon_courriel')); ?></textarea></td>
+                </td>
+            </tr>
+            <tr valign="top">
+                <th scope="row">Label "Courriel"</th>
+                <td><input type="text" name="label_courriel"
+                        value="<?php echo esc_attr(get_option('label_courriel')); ?>" />
+                </td>
+            </tr>
+            <tr valign="top">
+                <th scope="row">Label "Téléphone"</th>
+                <td><input type="text" name="label_telephone"
+                        value="<?php echo esc_attr(get_option('label_telephone')); ?>" />
+                </td>
+            </tr>
+
+            <tr valign="top">
+                <th scope="row">Bouton Modifier les informations</th>
+                <td><input type="text" name="label_button_3"
+                        value="<?php echo esc_attr(get_option('label_button_3')); ?>" />
+                </td>
+            </tr>
+
+            <tr valign="top">
+                <th scope="row">
+                    <hr>
+                </th>
+                <td>
+                    <hr>
+                </td>
+            </tr>
+            <tr valign="top">
+                <th scope="row">Footer 3</th>
+            </tr>
+            <tr valign="top">
+                <th scope="row">Texte dans le footer</th>
+                <td><textarea style="width:100%;"
+                        name="footer_texte"><?php echo esc_attr(get_option('footer_texte')); ?></textarea></td>
+            </tr>
+
+
+        </table>
+
+        <?php submit_button(); ?>
+
+    </form>
+</div>
+<?php }
+
+
+
+function my_custom_post_temoignage()
+{
+
+  //labels array added inside the function and precedes args array
+
+  $labels = array(
+    'name' => _x('Temoignages', 'post type general name'),
+    'singular_name' => _x('Temoignage', 'post type singular name'),
+    'add_new' => _x('Add New', 'temoignage'),
+    'add_new_item' => __('Add New temoignage'),
+    'edit_item' => __('Edit temoignage'),
+    'new_item' => __('New temoignage'),
+    'all_items' => __('All temoignages'),
+    'view_item' => __('View temoignage'),
+    'search_items' => __('Search temoignages'),
+    'not_found' => __('No temoignages found'),
+    'not_found_in_trash' => __('No temoignages found in the Trash'),
+    'parent_item_colon' => '',
+    'menu_name' => 'Temoignages'
+  );
+
+  // args array
+
+  $args = array(
+    'labels' => $labels,
+    'public' => true,
+    'menu_position' => 4,
+    'supports' => array('title', 'editor', 'excerpt'),
+    'has_archive' => true,
+  );
+
+  register_post_type('testimonials', $args);
+}
+add_action('init', 'my_custom_post_temoignage');
+
+if (!function_exists('custom_question_conditional_javascript')) {
+  function custom_question_conditional_javascript()
+  {
+  ?>
+
+
+<script>
+jQuery(document).ready(function() {
+
+    console.log('abc');
+    //  if(jQuery("#show_text").val() == "yes"){
+    //       jQuery("#optionstep1").show();jQuery("#optionstep2").hide();
+    //   }else
+    //   {
+    //       jQuery("#optionstep2").show();jQuery("#optionstep1").hide();
+    //   }
+});
+</script>
+<?php
+  }
+
+  add_action('wp_footer', 'custom_question_conditional_javascript', 1000);
+}
