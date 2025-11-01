@@ -67,7 +67,7 @@
             <?php if (!empty($titre_1)) {
                 echo $titre_1;
             } else {
-                echo "Obtenez la valeur marchande<br/>de votre propriété!";
+                echo "Obtenez la valeur marchande<br/>de votre propriété! ";
             } ?></h1>
     </div>
 </div>
