@@ -32,7 +32,18 @@ add_action('wp_enqueue_scripts', 'empower_scripts_basic');
 // Load the guide landing page styles only when the dedicated template is used
 function empower_scripts_guide_template()
 {
-  if (is_page_template('template/guide.php') || is_page_template('template/step1.php')) {
+  // Conditions où le bloc Guide est utilisé:
+  // - Page qui utilise le template complet `template/guide.php`
+  // - Pages qui incluent `template/step1.php` via `page.php` (front-page et page ID 13)
+  $should_load = false;
+  if (is_page_template('template/guide.php')) {
+    $should_load = true;
+  }
+  if (is_front_page() || is_page(13)) {
+    $should_load = true;
+  }
+
+  if ($should_load) {
     $base = get_template_directory_uri();
     $path = get_template_directory() . '/assets/css/guide.css';
     $ver  = file_exists($path) ? filemtime($path) : null;
