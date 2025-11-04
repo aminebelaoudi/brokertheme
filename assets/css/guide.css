@@ -10,6 +10,7 @@
 	background: linear-gradient(180deg, var(--guide-blue-200), var(--guide-blue-300));
 	color: var(--guide-text);
 	padding: 60px 0 72px;
+	margin-top: 32px; /* breathing space from previous section */
 }
 
 .guide-grid {
@@ -95,7 +96,7 @@
 }
 
 @media (max-width: 575.98px) {
-	.guide-hero { padding: 40px 0 56px; }
+	.guide-hero { padding: 40px 0 56px; margin-top: 24px; }
 	.guide-cta { width: 100%; max-width: 320px; }
 }
 

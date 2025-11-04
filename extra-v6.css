@@ -36,13 +36,19 @@ html, body{
     margin-bottom: 10px;
 }
 
+/* Ensure Step 1 main section keeps a tall viewport height even when guide is appended below */
+.container.vvvv.step1 .topdd{
+    min-height: calc(100vh - 160px); /* header + paddings allowance */
+}
+@media (max-width: 767px){
+  .container.vvvv.step1 .topdd{ min-height: auto; }
+}
+
 .cs-step3{
     padding: 80px 15px 60px !important;
 }
 
-.cs-footer-v23{
-   
-}
+/* .cs-footer-v23 placeholder removed (no rules) */
 
 .cs-red-text{
     color: #00aeef;
@@ -70,10 +76,7 @@ h2:after{
     top: 0px !important;
 }
 
-#slideshow { 
-    
-    /* min-width: 580px !important; */
-}
+/* #slideshow placeholder removed (no rules) */
 
 #slideshow > div{
     padding: 20px 50px 20px 30px !important; 
