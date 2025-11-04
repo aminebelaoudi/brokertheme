@@ -6,17 +6,16 @@
 // - $guide_right_content_html (HTML; if empty, a default features list is rendered)
 
 $heading = isset($guide_heading_level) && in_array($guide_heading_level, ['h1','h2','h3']) ? $guide_heading_level : 'h1';
-$title   = isset($guide_title) && $guide_title !== '' ? $guide_title : get_the_title();
+// Fixed title as requested
+$title   = 'Évaluation de la valeur marchande de votre propriété.';
 
-$bonus_text = get_post_meta(get_the_ID(), 'guide_bonus_text', true);
-if (!$bonus_text) {
-  $bonus_text = "Recevez en bonus notre guide: 12 améliorations pour ajouter jusqu’à 95 000 $ à la valeur de votre propriété.";
-}
+// Fixed bonus text under the image
+$bonus_text = "Recevez en bonus notre guide:\n12 améliorations pour ajouter jusqu’à 95 000 $ à la valeur de votre propriété.";
 
-$cta_url  = get_post_meta(get_the_ID(), 'guide_cta_url', true);
-$cta_text = get_post_meta(get_the_ID(), 'guide_cta_text', true);
-if (!$cta_text) { $cta_text = 'Télécharger le guide'; }
-$cta_href = $cta_url ? esc_url($cta_url) : '#';
+// CTA (text fixed; URL optional via meta if provided)
+$cta_url_meta  = get_post_meta(get_the_ID(), 'guide_cta_url', true);
+$cta_text = 'Télécharger le guide';
+$cta_href = $cta_url_meta ? esc_url($cta_url_meta) : '#';
 
 $right_html = isset($guide_right_content_html) ? trim($guide_right_content_html) : '';
 ?>
@@ -25,21 +24,21 @@ $right_html = isset($guide_right_content_html) ? trim($guide_right_content_html)
   <div class="container">
     <div class="guide-grid">
       <div class="guide-left">
-        <<?php echo $heading; ?> class="guide-title"><?php echo esc_html($title); ?></<?php echo $heading; ?>>
+        <div class="guide-left-inner">
+          <<?php echo $heading; ?> class="guide-title"><?php echo esc_html($title); ?></<?php echo $heading; ?>>
 
-        <div class="guide-visual">
-          <?php if (has_post_thumbnail()) : ?>
-            <?php the_post_thumbnail('large', ['class' => 'guide-image', 'loading' => 'eager']); ?>
-          <?php endif; ?>
+          <div class="guide-visual">
+            <img src="https://test2.evaluationpropriete.ca/wp-content/uploads/sites/89/2025/11/Mockup-Guide-Pratique-1.png" alt="Guide pratique - Évaluation de la valeur marchande" class="guide-image" loading="eager" />
+          </div>
+
+          <p class="guide-bonus"><?php echo nl2br(esc_html($bonus_text)); ?></p>
+
+          <p class="guide-cta-wrap">
+            <a class="guide-cta<?php echo $cta_url_meta ? '' : ' is-disabled'; ?>" href="<?php echo $cta_href; ?>"<?php echo $cta_url_meta ? '' : ' role="button" aria-disabled="true"'; ?>>
+              <?php echo esc_html($cta_text); ?>
+            </a>
+          </p>
         </div>
-
-        <p class="guide-bonus"><?php echo wp_kses_post($bonus_text); ?></p>
-
-        <p class="guide-cta-wrap">
-          <a class="guide-cta<?php echo $cta_url ? '' : ' is-disabled'; ?>" href="<?php echo $cta_href; ?>"<?php echo $cta_url ? '' : ' role="button" aria-disabled="true"'; ?>>
-            <?php echo esc_html($cta_text); ?>
-          </a>
-        </p>
       </div>
 
       <div class="guide-right">

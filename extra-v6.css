@@ -12,6 +12,9 @@ html, body{
     margin-bottom: 50px;
 }  
 
+/* Global variable used to size the testimonial bridge between Step 1 and the Guide */
+:root{ --testimonial-bridge-h: 220px; }
+
 .page{
     padding-bottom: 0 !important;    
     display: flex;
@@ -86,6 +89,14 @@ h2:after{
 .cs-form-field{
     top: 0 !important;
 }    
+
+/*
+ Bridge layout: make testimonial visually overlap Step 1 and the Guide section
+*/
+.step1 .cs-footer-v23{ position: relative; z-index: 3; height: var(--testimonial-bridge-h); }
+.step1 .cs-footer-v23 .testimonial-bridge{ position: relative; transform: translateY(50%); display:flex; align-items:center; justify-content:center; }
+.step1 .cs-footer-v23 #slideshow{ top: 0 !important; }
+.container.vvvv.step1 .topdd{ padding-bottom: calc(var(--testimonial-bridge-h) / 2 + 40px) !important; }
 
 /* Container des étapes - Grid Layout */
 .cs-steps{

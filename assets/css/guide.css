@@ -10,7 +10,8 @@
 	background: linear-gradient(180deg, var(--guide-blue-200), var(--guide-blue-300));
 	color: var(--guide-text);
 	padding: 60px 0 72px;
-	margin-top: 32px; /* breathing space from previous section */
+	/* half of testimonial bridge height, inherited from :root in theme CSS */
+	margin-top: calc(var(--testimonial-bridge-h, 0px) / 2);
 }
 
 .guide-grid {
@@ -19,6 +20,8 @@
 	align-items: center;
 	gap: 48px;
 }
+
+.guide-left-inner{ max-width: 620px; margin: 0 auto; }
 
 .guide-title {
 	font-weight: 800;
@@ -41,9 +44,10 @@
 	opacity: 0.9;
 	margin: 12px 0 18px;
 	font-size: 16px;
+	text-align: center; /* must be centered under the image */
 }
 
-.guide-cta-wrap { margin: 0; }
+.guide-cta-wrap { margin: 0; display:flex; justify-content:center; }
 
 .guide-cta {
 	display: inline-flex;
@@ -96,7 +100,7 @@
 }
 
 @media (max-width: 575.98px) {
-	.guide-hero { padding: 40px 0 56px; margin-top: 24px; }
+	.guide-hero { padding: 40px 0 56px; margin-top: calc(var(--testimonial-bridge-h, 0px) / 2); }
 	.guide-cta { width: 100%; max-width: 320px; }
 }
 

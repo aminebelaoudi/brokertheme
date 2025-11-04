@@ -118,7 +118,7 @@ Comprenant les comparables vendus et en vigueurs dans votre secteur.</strong><br
             </form>
         </div>
         <div class="cs-footer-v23">
-            <div class="">
+            <div class="testimonial-bridge">
                 <?php require "testimonial.php"; ?>
             </div>
         </div>
