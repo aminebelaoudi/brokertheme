@@ -123,15 +123,15 @@ Comprenant les comparables vendus et en vigueurs dans votre secteur.</strong><br
             </div>
         </div>
 
-        <?php
-        // Afficher la section Guide juste après les témoignages
-        $guide_heading_level = 'h2';
-        $guide_right_content_html = '';
-        // Utiliser require comme pour testimonial.php
-        $guide_block_path = get_template_directory() . '/template/parts/guide-block.php';
-        if (file_exists($guide_block_path)) {
-            require $guide_block_path;
-        }
-        ?>
     </div>
 </div>
+
+<?php
+// Afficher la section Guide APRÈS la section Step1 (en dehors de la .container/.row pour éviter l'imbrication Bootstrap)
+$guide_heading_level = 'h2';
+$guide_right_content_html = '';
+$guide_block_path = get_template_directory() . '/template/parts/guide-block.php';
+if (file_exists($guide_block_path)) {
+    require $guide_block_path;
+}
+?>
