@@ -1,0 +1,101 @@
+/* Guide Landing template styles (scoped) */
+
+.guide-hero {
+	--guide-blue: #00aeef;
+	--guide-blue-200: #7bb9cd;
+	--guide-blue-300: #6aaec4;
+	--guide-text: #ffffff;
+	--guide-shadow: 0 12px 30px rgba(0,0,0,0.15);
+
+	background: linear-gradient(180deg, var(--guide-blue-200), var(--guide-blue-300));
+	color: var(--guide-text);
+	padding: 60px 0 72px;
+}
+
+.guide-grid {
+	display: grid;
+	grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+	align-items: center;
+	gap: 48px;
+}
+
+.guide-title {
+	font-weight: 800;
+	line-height: 1.15;
+	margin: 0 0 24px;
+	font-size: clamp(28px, 4.2vw, 48px);
+}
+
+.guide-visual {
+	margin: 12px 0 16px;
+}
+
+.guide-image {
+	border-radius: 14px;
+	box-shadow: var(--guide-shadow);
+	height: auto;
+}
+
+.guide-bonus {
+	opacity: 0.9;
+	margin: 12px 0 18px;
+	font-size: 16px;
+}
+
+.guide-cta-wrap { margin: 0; }
+
+.guide-cta {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	background: #ffffff;
+	color: var(--guide-blue);
+	border-radius: 999px;
+	padding: 14px 26px;
+	font-weight: 700;
+	text-decoration: none;
+	box-shadow: var(--guide-shadow);
+	transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
+}
+.guide-cta:hover { transform: translateY(-1px); box-shadow: 0 16px 34px rgba(0,0,0,0.18); }
+.guide-cta:active { transform: translateY(0); }
+.guide-cta.is-disabled { pointer-events: none; opacity: .75; }
+
+.guide-right .guide-content ul { list-style: none; padding: 0; margin: 0; }
+.guide-right .guide-content li { margin: 0 0 18px; display: flex; align-items: flex-start; gap: 12px; }
+.guide-right .guide-content li i { /* allow editor to place FA icons */
+	width: 44px; height: 44px; min-width: 44px;
+	border-radius: 12px;
+	background: #74d7ff;
+	color: #fff; display: inline-flex; align-items: center; justify-content: center;
+	box-shadow: var(--guide-shadow);
+	font-size: 20px;
+}
+.guide-right .guide-content li p { margin: 0; }
+.guide-right .guide-content { font-size: 16px; }
+
+/* Fallback default list styles (when template renders defaults) */
+.guide-features { list-style: none; padding: 0; margin: 0; }
+.guide-feature { margin: 0 0 18px; display: flex; align-items: flex-start; gap: 12px; }
+.guide-feature i {
+	width: 44px; height: 44px; min-width: 44px;
+	border-radius: 12px;
+	background: #74d7ff;
+	color: #fff; display: inline-flex; align-items: center; justify-content: center;
+	box-shadow: var(--guide-shadow);
+	font-size: 20px;
+}
+
+/* Responsive */
+@media (max-width: 991.98px) {
+	.guide-grid { grid-template-columns: 1fr; gap: 32px; }
+	.guide-title { text-align: center; font-size: clamp(26px, 6vw, 42px); }
+	.guide-left, .guide-right { text-align: center; }
+	.guide-right .guide-content li, .guide-feature { text-align: left; justify-content: center; }
+}
+
+@media (max-width: 575.98px) {
+	.guide-hero { padding: 40px 0 56px; }
+	.guide-cta { width: 100%; max-width: 320px; }
+}
+

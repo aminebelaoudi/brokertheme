@@ -125,13 +125,19 @@ h2:after {
 /*}*/
 .loading .fa {
   font-size: 2.4em;
-  background-color: #c9302c;
-  color: #fff !important;
+  background-color: #ffffff;
+  color: #008CC8 !important;
   margin-bottom: 2px;
+  border-radius: 50% !important;
+  width: 48px !important;
+  height: 48px !important;
+  line-height: 48px !important;
+  text-align: center !important;
+  display: inline-block !important;
 }
 .one-step-old .fa {
   font-size: 4.2em;
-  color: #c9302c;  
+  color: #008CC8;  
   background: transparent;
   padding: 2px;
   margin-bottom: 0px;
@@ -227,10 +233,7 @@ textarea {
   font-family: "Roboto", sans-serif;
 }
 
-body {
-  /* height: 100% !important;
-  min-height: 100% !important; */
-}
+/* Removed empty body rule to satisfy linter */
 
 h3.statuss {
   color: #c9302c !important;
@@ -249,6 +252,9 @@ h3.statuss {
   /* The width is the width of the web page */
   margin-bottom: 25px;
   border: 5px solid #00aeef;
+  border-radius: 16px;
+  overflow: hidden; /* ensure map tiles/controls follow rounded corners */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
 button,
@@ -257,6 +263,7 @@ input[type="reset"],
 input[type="submit"],
 .wpcf7-submit {
   transition: all 0.3s ease-in-out;
+  appearance: button;
   -webkit-appearance: button;
   cursor: pointer;
   background-color: #c9302c !important;
@@ -264,6 +271,7 @@ input[type="submit"],
 }
 button:hover,
 .wpcf7-submit:hover {
+  appearance: button;
   -webkit-appearance: button;
   cursor: pointer;
   background-color: #c9302c !important;
@@ -383,9 +391,7 @@ a.red:hover {
     float: none !important;
   }
 }
-.page {
-  
-}
+/* Removed empty .page rule to satisfy linter */
 #slideshow {
   /* width: 350px; */
   position: relative;

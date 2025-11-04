@@ -1,6 +1,6 @@
 
 html{
-    background-image: url('/wp-content/uploads/2023/03/evaluation-bg-v3.jpg') !important;
+    background-image: url('https://lebretonlefebvre.com/wp-content/uploads/sites/31/2025/11/banner-imagev2_1.webp') !important;
     background-size: cover !important;
     background-repeat: no-repeat !important;
     background-position: top center !important;
@@ -86,11 +86,11 @@ h2:after{
 
 /* Container des étapes - Grid Layout */
 .cs-steps{
-  margin: 0px 0% 40px;
+  margin: 20px 0% 15px; /* reduce gap under the title */
   max-width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 340px));
-  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 300px));
+  gap: 14px;
   align-items: center;
   justify-content: center; /* centre le groupe de cartes */
   justify-items: stretch;  /* chaque carte occupe toute la colonne */
@@ -99,19 +99,20 @@ h2:after{
 /* Cartes individuelles bleues */
 .cs-steps .one-step {
     background: rgba(0, 174, 239, 0.9);
-  padding: 18px 18px;
+    padding: 14px 16px;
     border-radius: 12px;
-    text-align: center;
+    text-align: left;
     transition: all 0.3s ease;
     cursor: pointer;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     display: flex;
-    flex-direction: column;
+    flex-direction: row; /* icon left, text right */
     align-items: center;
-    justify-content: center;
-    min-height: 100px;
-  width: 100%;
-  max-width: 340px;
+    justify-content: flex-start;
+    gap: 10px;
+    min-height: 78px;
+    width: 100%;
+    max-width: 300px;
 }
 
 .cs-steps .one-step:hover {
@@ -133,17 +134,18 @@ h2:after{
 }
 
 .cs-steps .one-step i {
-    font-size: 36px;
-    margin-bottom: 10px;
-    display: block;
+  font-size: 28px;
+  margin: 0 10px 0 0;
+  display: inline-block;
+  flex-shrink: 0;
 }
 
 .cs-steps .one-step h3 {
-    font-size: 15px;
-    font-weight: 600;
-    margin: 0;
-    padding: 0;
-    line-height: 1.3;
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0;
+  padding: 0;
+  line-height: 1.3;
 }
 
 /* Étape active - Bleu plus foncé */
@@ -171,11 +173,11 @@ h2:after{
 
 /* Étape complétée - Vert */
 .cs-steps .one-step.cs-completed {
-    background: rgba(53, 183, 54, 0.9);
+    background: rgb(89, 172, 119);
 }
 
 .cs-steps .one-step.cs-completed:hover {
-    background: rgba(53, 183, 54, 1);
+    background: rgb(89, 172, 119);
 }
 
 .cs-steps .one-step.cs-completed h3,
@@ -211,8 +213,47 @@ h2:after{
 }
 
 .step2 .topdd{
-    margin: 60px 3% 0px !important;
-    padding: 80px 15px 80px !important
+  margin: 20px 3% 10px !important; 
+  padding: 20px 15px 60px !important; 
+}
+
+/* Step 2: glass effect on inputs (keep layout unchanged) */
+.step2 .forny #msform input:not([type="submit"]),
+.step2 .forny #msform textarea,
+.step2 .forny #msform select{
+  background: linear-gradient(180deg, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.25) 100%) !important;
+  border: 1px solid rgba(255,255,255,0.35) !important;
+  color: #ffffff !important;
+  border-radius: 16px !important;
+  -webkit-backdrop-filter: saturate(160%) blur(10px) !important;
+  backdrop-filter: saturate(160%) blur(10px) !important;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15) !important;
+}
+
+.step2 .forny #msform input:not([type="submit"]):focus,
+.step2 .forny #msform textarea:focus,
+.step2 .forny #msform select:focus{
+  outline: none !important;
+  border-color: rgba(0,174,239,0.8) !important; /* accent bleu */
+  box-shadow: 0 8px 22px rgba(0,174,239,0.25) !important;
+}
+
+/* Placeholder en blanc pour lisibilité sur le fond */
+.step2 .forny #msform input::placeholder,
+.step2 .forny #msform textarea::placeholder{
+  color: #ffffff !important;
+  opacity: 0.85 !important;
+}
+
+/* Dropdown options readable in list */
+.step2 .forny #msform select option{
+  color: #000 !important;
+}
+
+/* Conserver la visibilité de l'état d'erreur CF7 */
+.step2 .forny #msform .wpcf7-not-valid{
+  border-color: #ff5252 !important;
+  box-shadow: 0 0 0 1px rgba(255,82,82,0.35) inset, 0 6px 18px rgba(0,0,0,0.15) !important;
 }
 
 .wpcf7-select {
@@ -248,27 +289,30 @@ h2:after{
 }
 
 @media (max-width: 1024px) and (min-width: 768px){
-    .cs-steps{
-  margin: -80px 0% 40px;
-  max-width: 100%;
-  gap: 12px;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 300px));
-  justify-content: center;
-    }
+  .cs-steps{
+    margin: -80px 0% 40px;
+    max-width: 100%;
+    gap: 12px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 280px));
+    justify-content: center;
+  }
     
-    .cs-steps .one-step{
-        padding: 18px 15px;
-        min-height: 90px;
-    }
+  .cs-steps .one-step{
+    padding: 12px 14px;
+    min-height: 72px;
+    flex-direction: row;
+    text-align: left;
+    gap: 10px;
+  }
     
-    .cs-steps .one-step i {
-        font-size: 32px;
-        margin-bottom: 8px;
-    }
+  .cs-steps .one-step i {
+    font-size: 26px;
+    margin: 0 10px 0 0;
+  }
     
-    .cs-steps .one-step h3 {
-        font-size: 13px;
-    }
+  .cs-steps .one-step h3 {
+    font-size: 13px;
+  }
 }
 
 @media (max-width: 1024px){
@@ -282,8 +326,8 @@ h2:after{
     margin-bottom: 0px !important;
 }
 
-    .step2 .topdd{
-    padding: 80px 15px 40px !important
+  .step2 .topdd{
+  padding: 30px 15px 30px !important; /* reduce spacing on tablets */
 }
 }
 
@@ -293,27 +337,36 @@ html{
     background-size: inherit !important;
     }
     
-    .cs-steps{
-        margin: -60px 2% 30px;
-        max-width: 96%;
-        grid-template-columns: 1fr;
-        gap: 12px;
-        padding: 0;
-    }
+  .cs-steps{
+    margin: -60px 2% 30px;
+    max-width: 96%;
+    grid-template-columns: repeat(3, minmax(0, 1fr)); /* trois cartes côte à côte */
+    gap: 8px;
+    padding: 0;
+  }
 
-    .cs-steps .one-step{
-        padding: 20px 20px;
-        min-height: 85px;
-    }
+  .cs-steps .one-step{
+    padding: 10px 8px;
+    min-height: 90px; /* hauteur uniforme compacte */
+    flex-direction: column; /* icône au-dessus */
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 4px;
+  }
     
-    .cs-steps .one-step i {
-        font-size: 34px;
-        margin-bottom: 8px;
-    }
+  .cs-steps .one-step i {
+    font-size: 22px; /* icône plus compacte */
+    margin: 0 0 2px 0;
+  }
     
-    .cs-steps .one-step h3 {
-        font-size: 14px;
-    }
+  .cs-steps .one-step h3 {
+    font-size: 11px; /* texte encore plus compact pour tenir sur 3 colonnes */
+    line-height: 1.2;
+  }
+
+  /* enlever les retours à la ligne pour compacter le texte des étapes */
+  .cs-steps .one-step h3 br{ display: none; }
 
     .topdd {    
         padding: 60px 15px 70px !important;
@@ -334,6 +387,19 @@ html{
 
     
 
+}
+
+/* Override for mobile: reduce gap on step 2 specifically */
+@media (max-width: 767px){
+  .step2 .topdd{ padding-top: 20px !important; margin-top: 10px !important; }
+}
+
+/* Très petits écrans: toujours 3 colonnes mais plus compact */
+@media (max-width: 380px){
+  .cs-steps{ grid-template-columns: repeat(3, 1fr); gap: 6px; }
+  .cs-steps .one-step{ min-height: 86px; padding: 8px 6px; }
+  .cs-steps .one-step i{ font-size: 20px; }
+  .cs-steps .one-step h3{ font-size: 10px; }
 }
 
 
@@ -590,6 +656,95 @@ color: white !important;
   font-size: 20px;
   margin-top: 40px;
   margin-bottom: 30px;
+}
+/* ===== Modern search form styling (Step 1) ===== */
+/* Container as a glassy pill bar */
+#msform #locationField{
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  padding: 6px 8px !important;
+  margin: 12px auto 2px !important;
+  max-width: 980px !important;
+  background: linear-gradient(180deg, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.25) 100%) !important;
+  border: 1px solid rgba(255,255,255,0.35) !important;
+  border-radius: 40px !important;
+  -webkit-backdrop-filter: saturate(160%) blur(10px) !important;
+  backdrop-filter: saturate(160%) blur(10px) !important;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15) !important;
+}
+
+/* Remove line breaks inside the flex bar */
+#msform #locationField br{ display:none !important; }
+
+/* Inputs inside the bar */
+#msform #locationField input{
+  background: transparent !important;
+  border: 0 !important;
+  outline: none !important;
+  color: #ffffff !important;
+  height: 48px !important;
+  line-height: normal !important; /* better vertical centering */
+  padding: 10px 14px !important;  /* vertical padding to center text */
+  box-shadow: none !important;
+}
+
+/* Address field: takes remaining width and shows a search icon */
+#msform #locationField .addresses{
+  flex: 1 1 auto !important;
+  min-width: 0 !important;
+  width: auto !important;
+  float: none !important;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3ccircle cx='11' cy='11' r='8'%3e%3c/circle%3e%3cline x1='21' y1='21' x2='16.65' y2='16.65'%3e%3c/line%3e%3c/svg%3e") !important;
+  background-repeat: no-repeat !important;
+  background-position: 12px center !important;
+  background-size: 18px 18px !important;
+  padding-left: 40px !important;
+}
+
+/* Unit field: compact width on desktop */
+#msform #locationField .unite{
+  width: 220px !important;          /* more room so placeholder is fully visible */
+  min-width: 220px !important;
+  flex: 0 0 220px !important;
+  float: none !important;
+}
+
+/* Placeholder color */
+#msform #locationField input::placeholder{
+  color: #ffffff !important;
+  opacity: 0.75 !important;
+}
+
+/* Submit button as a white rounded pill with blue text */
+#msform #locationField .cs-button-submit{
+  background-color: #ffffff !important;
+  color: #05b0ef !important;
+  border: 0 !important;
+  border-radius: 9999px !important;
+  font-weight: 800 !important;
+  height: 48px !important;
+  padding: 0 24px !important;
+  line-height: 48px !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12) !important;
+  cursor: pointer !important;
+}
+
+#msform #locationField .cs-button-submit:hover{
+  box-shadow: 0 6px 18px rgba(0,0,0,0.16) !important;
+}
+
+/* Responsive tweaks */
+@media (max-width: 767px){
+  #msform #locationField{ flex-wrap: wrap !important; padding: 8px !important; }
+  #msform #locationField .addresses{ width: 100% !important; flex-basis: 100% !important; padding-left: 38px !important; order: 1 !important; }
+  #msform #locationField .unite{ width: 100% !important; min-width: 0 !important; flex: 1 1 100% !important; order: 2 !important; }
+  #msform #locationField .cs-button-submit{ width: 100% !important; flex: 1 1 100% !important; margin-left: 0 !important; order: 3 !important; }
+}
+
+@media (max-width: 480px){
+  #msform #locationField .unite{ width: 100% !important; flex-basis: 100% !important; }
+  #msform #locationField .cs-button-submit{ width: 100% !important; flex-basis: 100% !important; }
 }
 /* .topdd { 
   background:rgba(0, 0, 0, 0.7) !important;

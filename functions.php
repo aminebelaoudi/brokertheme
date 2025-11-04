@@ -29,6 +29,18 @@ function empower_scripts_basic()
 }
 add_action('wp_enqueue_scripts', 'empower_scripts_basic');
 
+// Load the guide landing page styles only when the dedicated template is used
+function empower_scripts_guide_template()
+{
+  if (is_page_template('template/guide.php') || is_page_template('template/step1.php')) {
+    $base = get_template_directory_uri();
+    $path = get_template_directory() . '/assets/css/guide.css';
+    $ver  = file_exists($path) ? filemtime($path) : null;
+    wp_enqueue_style('guide-template', $base . '/assets/css/guide.css', array('bootstrap', 'manual'), $ver, 'all');
+  }
+}
+add_action('wp_enqueue_scripts', 'empower_scripts_guide_template');
+
 function empower_custom_new_menu()
 {
   register_nav_menus(
