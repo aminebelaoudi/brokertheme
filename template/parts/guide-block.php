@@ -10,7 +10,7 @@ $heading = isset($guide_heading_level) && in_array($guide_heading_level, ['h1','
 $title   = 'Évaluation de la valeur marchande de votre propriété.';
 
 // Fixed bonus text under the image
-$bonus_text = "Recevez en bonus notre guide:\n12 améliorations pour ajouter jusqu’à 95 000 $ à la valeur de votre propriété.";
+$bonus_text = "Recevez en bonus notre guide:\n12 améliorations pour ajouter jusqu’à \n 95 000 $ à la valeur de votre propriété.";
 
 // CTA (text fixed; URL optional via meta if provided)
 $cta_url_meta  = get_post_meta(get_the_ID(), 'guide_cta_url', true);
@@ -46,10 +46,10 @@ $right_html = isset($guide_right_content_html) ? trim($guide_right_content_html)
           <div class="guide-content"><?php echo $right_html; ?></div>
         <?php else : ?>
           <ul class="guide-features">
-            <li class="guide-feature"><i class="fa fa-home" aria-hidden="true"></i> Une sélection de propriétés comparables vendues récemment dans votre secteur.</li>
-            <li class="guide-feature"><i class="fa fa-tags" aria-hidden="true"></i> L’évolution estimée de la valeur de votre propriété depuis son achat.</li>
-            <li class="guide-feature"><i class="fa fa-line-chart" aria-hidden="true"></i> Un aperçu du marché actuel pour déterminer si c’est le bon moment de vendre.</li>
-            <li class="guide-feature"><i class="fa fa-lightbulb-o" aria-hidden="true"></i> Des recommandations d’améliorations pour en tirer le meilleur prix.</li>
+            <li class="guide-feature"><img class="guide-icon" src="https://test2.evaluationpropriete.ca/wp-content/uploads/sites/89/2025/11/home.png" alt="Icône maison" /> Une sélection de propriétés comparables vendues récemment dans votre secteur.</li>
+            <li class="guide-feature"><img class="guide-icon" src="https://test2.evaluationpropriete.ca/wp-content/uploads/sites/89/2025/11/price.png" alt="Icône prix" /> L’évolution estimée de la valeur de votre propriété depuis son achat.</li>
+            <li class="guide-feature"><img class="guide-icon" src="https://test2.evaluationpropriete.ca/wp-content/uploads/sites/89/2025/11/office.png" alt="Icône marché" /> Un aperçu du marché actuel pour déterminer si c’est le bon moment de vendre.</li>
+            <li class="guide-feature"><img class="guide-icon" src="https://test2.evaluationpropriete.ca/wp-content/uploads/sites/89/2025/11/bag.png" alt="Icône recommandations" /> Des recommandations d’améliorations pour en tirer le meilleur prix.</li>
           </ul>
         <?php endif; ?>
       </div>
