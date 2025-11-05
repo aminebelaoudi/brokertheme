@@ -27,23 +27,20 @@
 .guide-title {
 	font-weight: 800;
 	line-height: 1.15;
-	margin: 0 0 16px; /* tighter to reduce height */
 	font-size: clamp(28px, 4.2vw, 38px);
-    color: white ;
+	color: white ;
 }
+.guide-hero .guide-title{ color:#fff !important; }
 
-.guide-visual {
-	margin: 12px 0 16px;
-}
+/*.guide-visual { margin: 4px 0 4px; } */
 
 .guide-image {
-	
 	height: auto;
 }
 
 .guide-bonus {
 	opacity: 0.9;
-	margin: 12px 0 18px;
+	margin: 0px 0 8px; /* reduce gap after image and overall height */
     color: white;
 	font-size: 20px;
 	text-align: center; /* must be centered under the image */
@@ -63,6 +60,7 @@
 	text-decoration: none;
 	box-shadow: var(--guide-shadow);
 	transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
+	width:50%;
 }
 .guide-cta:hover { transform: translateY(-1px); box-shadow: 0 16px 34px rgba(0,0,0,0.18); }
 .guide-cta:active { transform: translateY(0); }
