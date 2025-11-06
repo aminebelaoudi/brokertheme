@@ -1,9 +1,11 @@
 
 html{
-    background-image: url('/wp-content/uploads/2025/11/background.webp') !important;
+    background-image: url('https://storage.googleapis.com/msgsndr/FqqkdWQ0F0QPYOpLYXnz/media/690d30f01aab9307c72e1d0f.webp') !important;
     background-size: cover !important;
     background-repeat: no-repeat !important;
     background-position: top center !important;
+    background-attachment: fixed !important; /* keep image covering viewport while scrolling */
+
 }
 
 html, body{
@@ -21,8 +23,8 @@ html, body{
 } 
 
 .cs-header-v23{ 
-    background: rgb(255,255,255); 
-    background: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 90%);
+    /* background: rgb(255,255,255); 
+    background: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 90%); */
     min-height: 100px;
     display: flex;
     align-items: center;
@@ -761,6 +763,10 @@ color: white !important;
   font-weight: 400;
   text-align: center;
 }
+
+.cs-header-v23 .tit_eval_resul h1 {
+color: white !important;
+}
 .valeur2 h2 {
   color: #fff;
   font-weight: 900;
@@ -842,13 +848,14 @@ h3 {
 }
 
 .wpcf7-spinner{
-    background-color: #c9302c !important;
+  background-color: #ffffff;
+  color: #008CC8 !important;
     margin-bottom: 30px;
 }
 
 .step2 .slideshow-container{
-  margin-top: 50px;
-  margin-bottom: 0px; 
+  margin-top: 0px !important;
+  margin-bottom: 100px !important; 
 }
 
 .texte-footer {
@@ -856,8 +863,7 @@ h3 {
   padding: 20px 10px !important;
   display: block !important;
   text-align: center !important;
-  margin: 150px 10px 20px !important;
-  text-shadow: 1px 1px 5px black,-1px -1px 5px black;
+  background-color : #6aaec4 !important;
 }
 
 .step2 .texte-footer {
