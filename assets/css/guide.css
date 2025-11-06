@@ -120,7 +120,20 @@
 }
 
 @media (max-width: 575.98px) {
-	.guide-hero { padding: 32px 0 48px; margin-top: 12px; }
-	.guide-cta { width: 100%; max-width: 320px; }
+	/* Mobile: add breathing room top & bottom and side padding */
+	.guide-hero { padding: 48px 0 60px; margin-top: 40px; }
+	.guide-hero .container{ padding: 0 20px; }
+	/* Extra space before title */
+	.guide-title { margin-top: 22px; }
+	/* List not stuck to screen edges */
+	.guide-right .guide-content{ padding: 0 12px; }
+	.guide-right .guide-content ul{ padding-left: 20px;padding-right: 20px; }
+	.guide-right .guide-content li{ margin: 0 0 16px; }
+	/* CTA full width with bottom margin */
+	.guide-cta { width: 100%; max-width: 320px; margin-bottom: 24px; }
+	.guide-bonus { margin-top: 10px; }
+	/* Remove negative offset applied on larger screens */
+	/* Add horizontal padding so the right column content has space from screen edges */
+	.guide-right { margin-top: 0; padding-left: 20px; padding-right: 20px; }
 }
 

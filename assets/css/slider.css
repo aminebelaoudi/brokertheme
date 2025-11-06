@@ -19,21 +19,28 @@
 #slideshow > div > h2 {
   line-height: 5px;
 }
+/* Avoid drift on zoom: no extra top offset */
 #slideshow > div {
-  top: 3px;
+  top: 0;
 }
 #slideshow > div > p,
 #slideshow > div > i {
   line-height: 1px;
 }
 #slideshow > div > span > img {
-  max-width: 50px !;
+  max-width: 50px ;
   height: auto;
 }
 
 .testimonial-container{
     display: flex;
     justify-content: space-around;
+}
+
+/* Keep top spacing stable across zoom: prefer padding over margin */
+.slideshow-container{
+  padding-top: 25px;
+  margin-top: 0;
 }
 
 .leffr {
@@ -399,8 +406,9 @@ a.red:hover {
 }
 .fa-star {
   font-size: 12px !important;
-  padding: 1px !important;
+  padding: 2px !important;
   color: #ffc107 !important;
+  margin-bottom:22px ;
 }
 #slideshow p {
   line-height: 10px !important;

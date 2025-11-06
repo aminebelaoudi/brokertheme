@@ -61,7 +61,7 @@
         <?php if (!empty($logo_personnalise)) {            
             echo $logo_personnalise;
         } else {
-            echo '<img src="/wp-content/uploads/2023/03/Info-Immobilier_logo.png" alt="Logo" class="cs-logo">';
+            echo '<img src="logo-info v white.webp" alt="Logo" class="cs-logo">';
         } ?>
         <h1>
             <?php if (!empty($titre_1)) {
@@ -72,7 +72,7 @@
     </div>
 </div>
 
-<div class="container vvvv step1">
+<div id="evaluation" class="container vvvv step1">
 
     <div class="row topdd">
         <div class="row">
@@ -107,7 +107,7 @@ Comprenant les comparables vendus et en vigueurs dans votre secteur.</strong><br
             <form action="" method="post" id="msform">
                 <div id="locationField" class="cs-form-field">
                     <input id="autocomplete" placeholder="<?php echo $label_adresse; ?>" onFocus="geolocate()" type="text" name="<?php echo ($is_mailchimp) ? 'mc4wp-ADDRESS' : 'address'; ?>" class="addresses" required />
-                    <input id="evaluation" type="text" name="unite" class="unite" placeholder="<?php echo $label_unite; ?>" />
+                    <input type="text" name="unite" class="unite" placeholder="<?php echo $label_unite; ?>" />
 
                     <br /><br />
                     <div class="loading hidden">
