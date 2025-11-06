@@ -9,8 +9,8 @@
 
 	background: linear-gradient(180deg, var(--guide-blue-200), var(--guide-blue-300));
 	color: var(--guide-text);
-	padding: 40px 0 56px; /* reduce vertical height */
-	margin-top: 32px; /* breathing space from previous section */
+	padding: 32px 0 48px; /* tighten vertical height */
+	margin-top: 16px; /* reduce space from previous section */
 }
 
 .guide-hero .container{ max-width: 1140px; padding: 0 32px; margin: 0 auto; }
@@ -19,7 +19,7 @@
 	display: grid;
 	grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
 	align-items: center;
-	gap: 28px; /* bring icons column closer to image */
+	gap: 16px; /* even closer columns */
 }
 
 .guide-left-inner{ max-width: 620px; margin: 0 auto; }
@@ -29,6 +29,7 @@
 	line-height: 1.15;
 	font-size: clamp(28px, 4.2vw, 38px);
 	color: white ;
+	margin: 0 0 2px; /* minimal gap between title and grid */
 }
 .guide-hero .guide-title{ color:#fff !important; }
 
@@ -62,7 +63,7 @@
 	transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
 	width:50%;
 }
-.guide-cta:hover { transform: translateY(-1px); box-shadow: 0 16px 34px rgba(0,0,0,0.18); }
+.guide-cta:hover { transform: translateY(-1px); box-shadow: 0 16px 34px rgba(0,0,0,0.18);color: #00aeef;background-color: white; }
 .guide-cta:active { transform: translateY(0); }
 .guide-cta.is-disabled { pointer-events: none; opacity: .75; }
 
@@ -87,6 +88,10 @@
 .guide-right .guide-content li p { margin: 0; }
 .guide-right .guide-content { font-size: 16px; }
 
+.guide-right {
+  margin-top: -180px;
+}
+
 /* Fallback default list styles (when template renders defaults) */
 .guide-features { list-style: none; padding: 0; margin: 0; }
 .guide-feature { margin: 0 0 14px; display: flex; align-items: flex-start; gap: 12px; }
@@ -101,14 +106,21 @@
 
 /* Responsive */
 @media (max-width: 991.98px) {
-	.guide-grid { grid-template-columns: 1fr; gap: 24px; }
+	.guide-grid { grid-template-columns: 1fr; gap: 16px; }
 	.guide-title { text-align: center; font-size: clamp(26px, 6vw, 42px); }
 	.guide-left, .guide-right { text-align: center; }
+
+	.guide-right {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		margin-top: -32px;
+	}
 	.guide-right .guide-content li, .guide-feature { text-align: left; justify-content: center; }
 }
 
 @media (max-width: 575.98px) {
-	.guide-hero { padding: 40px 0 56px; margin-top: 24px; }
+	.guide-hero { padding: 32px 0 48px; margin-top: 12px; }
 	.guide-cta { width: 100%; max-width: 320px; }
 }
 

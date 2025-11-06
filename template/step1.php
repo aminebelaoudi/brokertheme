@@ -107,7 +107,7 @@ Comprenant les comparables vendus et en vigueurs dans votre secteur.</strong><br
             <form action="" method="post" id="msform">
                 <div id="locationField" class="cs-form-field">
                     <input id="autocomplete" placeholder="<?php echo $label_adresse; ?>" onFocus="geolocate()" type="text" name="<?php echo ($is_mailchimp) ? 'mc4wp-ADDRESS' : 'address'; ?>" class="addresses" required />
-                    <input type="text" name="unite" class="unite" placeholder="<?php echo $label_unite; ?>" />
+                    <input id="evaluation" type="text" name="unite" class="unite" placeholder="<?php echo $label_unite; ?>" />
 
                     <br /><br />
                     <div class="loading hidden">

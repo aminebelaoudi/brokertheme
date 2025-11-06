@@ -7,7 +7,7 @@
 
 $heading = isset($guide_heading_level) && in_array($guide_heading_level, ['h1','h2','h3']) ? $guide_heading_level : 'h1';
 // Fixed title as requested
-$title   = 'Évaluation de la valeur marchande de votre propriété.';
+$title   = 'Évaluation de la valeur marchande \n de votre propriété.';
 
 // Fixed bonus text under the image
 $bonus_text = "Recevez en bonus notre guide:\n12 améliorations pour ajouter jusqu’à \n 95 000 $ à la valeur de votre propriété.";
@@ -22,11 +22,10 @@ $right_html = isset($guide_right_content_html) ? trim($guide_right_content_html)
 
 <section class="guide-hero">
   <div class="container">
+    <<?php echo $heading; ?> class="guide-title"><?php echo esc_html($title); ?></<?php echo $heading; ?>>
     <div class="guide-grid">
       <div class="guide-left">
         <div class="guide-left-inner">
-          <<?php echo $heading; ?> class="guide-title"><?php echo esc_html($title); ?></<?php echo $heading; ?>>
-
           <div class="guide-visual">
             <img src="https://test2.evaluationpropriete.ca/wp-content/uploads/sites/89/2025/11/Mockup-Guide-Pratique-1.png" alt="Guide pratique - Évaluation de la valeur marchande" class="guide-image" loading="eager" />
           </div>
@@ -34,7 +33,7 @@ $right_html = isset($guide_right_content_html) ? trim($guide_right_content_html)
           <p class="guide-bonus"><?php echo nl2br(esc_html($bonus_text)); ?></p>
 
           <p class="guide-cta-wrap">
-            <a class="guide-cta<?php echo $cta_url_meta ? '' : ' is-disabled'; ?>" href="<?php echo $cta_href; ?>"<?php echo $cta_url_meta ? '' : ' role="button" aria-disabled="true"'; ?>>
+            <a class="guide-cta<?php echo $cta_url_meta ? '' : ' is-disabled'; ?>" href="#evaluation"<?php echo $cta_url_meta ? '' : ' role="button" aria-disabled="true"'; ?>>
               <?php echo esc_html($cta_text); ?>
             </a>
           </p>
