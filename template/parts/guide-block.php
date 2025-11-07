@@ -27,7 +27,7 @@ $right_html = isset($guide_right_content_html) ? trim($guide_right_content_html)
       <div class="guide-left">
         <div class="guide-left-inner">
           <div class="guide-visual">
-            <img src="https://storage.googleapis.com/msgsndr/FqqkdWQ0F0QPYOpLYXnz/media/690e1e7827678e94cfe5fcb1.webp" alt="Guide pratique - Évaluation de la valeur marchande" class="guide-image" loading="eager" />
+            <img src="https://storage.googleapis.com/msgsndr/FqqkdWQ0F0QPYOpLYXnz/media/690e295eab41136ad8537c6d.webp" alt="Guide pratique - Évaluation de la valeur marchande" class="guide-image" loading="eager" />
           </div>
 
           <p class="guide-bonus"><?php echo nl2br(esc_html($bonus_text)); ?></p>

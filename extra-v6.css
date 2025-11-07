@@ -1,3 +1,30 @@
+/* Privacy policy line with icon (Step 2) */
+.policy-privacy {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  line-height: 1.5em;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+.policy-privacy .policy-icon img {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+.policy-privacy .policy-text {
+  flex: 1;
+}
+@media screen and (max-width: 767px) {
+  .policy-privacy {
+    font-size: 13px;
+    gap: 6px;
+  }
+  .policy-privacy .policy-icon img {
+    width: 18px;
+    height: 18px;
+  }
+}
 
 html{
     background-image: url('https://storage.googleapis.com/msgsndr/FqqkdWQ0F0QPYOpLYXnz/media/690e1e3027678e347fe5f23f.webp') !important;

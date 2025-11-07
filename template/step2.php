@@ -68,9 +68,11 @@
                 <input type="hidden" name="unite" value="<?php echo (isset($_POST['unite'])) ? $_POST['unite'] : '';  ?>" />
 
                 <?php echo do_shortcode('[contact-form-7 id=' . $formID . ' title="Formulaire de contact 1" html_id="msform"]'); ?>
-                <p class="cs-white-text" style="line-height: 1.5em; margin-top: -30px;">
-                    <img src="https://test2.evaluationpropriete.ca/wp-content/uploads/sites/89/2025/11/protection.png" alt="Icône de sécurité" style="height:18px; width:18px; margin-right:8px; vertical-align:middle;" />
-                    <?php echo $politique_2; ?>
+                <p class="cs-white-text policy-privacy" style="margin-top: -30px;">
+                    <span class="policy-icon">
+                        <img src="https://test2.evaluationpropriete.ca/wp-content/uploads/sites/89/2025/11/protection.png" alt="Icône de sécurité" />
+                    </span>
+                    <span class="policy-text"><?php echo $politique_2; ?></span>
                 </p>
             </div>
         </div>

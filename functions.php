@@ -9,7 +9,8 @@ function empower_scripts_basic()
   wp_enqueue_style('bootstrap-responsive', $baseurl . '/assets/css/bootstrap-responsive.min.css', array(), '0.1.0', 'all');
   wp_enqueue_style('font-awesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css', array(), '0.1.0', 'all');
 
-  wp_enqueue_style('extra-styles', get_template_directory_uri() . '/extra-v6.css', array(), filemtime(get_template_directory() . '/extra.css'), false);
+  // Version with filemtime of extra-v6.css to avoid cache issues when CSS changes
+  wp_enqueue_style('extra-styles', get_template_directory_uri() . '/extra-v6.css', array(), filemtime(get_template_directory() . '/extra-v6.css'), false);
   wp_enqueue_style('extra-styles-immobilier', get_template_directory_uri() . '/extra-immobilier.css', array(), filemtime(get_template_directory() . '/extra-immobilier.css'), false);
 
   wp_enqueue_style('bootstrapsssdd', $baseurl . '/font.css', array(), '0.1.0', 'all');
