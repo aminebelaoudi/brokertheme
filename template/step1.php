@@ -67,7 +67,7 @@
             <?php if (!empty($titre_1)) {
                 echo $titre_1;
             } else {
-                echo "Obtenez la valeur marchande<br/>de votre propriété! ";
+                echo "Obtenez la valeur marchande <br> de votre propriété";
             } ?></h1>
     </div>
 </div>
@@ -98,8 +98,7 @@
                                                         echo $texte_1;
                                                     } else {
 
-                                                        echo "<strong>Recevez un rapport d’évaluation de votre propriété!<br/>
-Comprenant les comparables vendus et en vigueurs dans votre secteur.</strong><br><br><span style='font-weight: 400'>Sans frais et sans engagements de votre part.</span>";
+                                                        echo "<strong>Recevez gratuitement et sans engagement l’évaluation de votre propriété, incluant les <br> comparables vendus et en cours dans votre secteur.</strong>";
                                                     } ?></h2>
         </div>
 
