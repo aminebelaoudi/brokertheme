@@ -107,16 +107,16 @@
 /* Responsive */
 @media (max-width: 991.98px) {
 	.guide-grid { grid-template-columns: 1fr; gap: 16px; }
-	.guide-title { text-align: center; font-size: clamp(26px, 6vw, 42px); }
+	.guide-title {margin-top:70px; text-align: center; font-size: clamp(26px, 6vw, 42px); }
 	.guide-left, .guide-right { text-align: center; }
 
 	.guide-right {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
-		margin-top: -32px;
+		margin-top: 0px;
 	}
-	.guide-right .guide-content li, .guide-feature { text-align: left; justify-content: center; }
+	.guide-right .guide-content li, .guide-feature { text-align: left;  }
 }
 
 @media (max-width: 575.98px) {
