@@ -121,10 +121,10 @@
 
 @media (max-width: 575.98px) {
 	/* Mobile: add breathing room top & bottom and side padding */
-	.guide-hero { padding: 48px 0 60px; margin-top: 50px; }
+	.guide-hero { padding: 48px 0 60px; margin-top: 50px !important; }
 	.guide-hero .container{ padding: 0 25px; }
 	/* Extra space before title */
-	.guide-title { margin-top: 25px; }
+	.guide-title { margin-top: 50px !important; }
 	/* List not stuck to screen edges */
 	.guide-right .guide-content{ padding: 0 12px; }
 	.guide-right .guide-content ul{ padding-left: 20px;padding-right: 20px; }
