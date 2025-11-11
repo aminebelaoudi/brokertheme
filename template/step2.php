@@ -84,6 +84,15 @@
     </div>
 </div>
 
+<?php
+// Afficher la section Guide APRÈS la section Step1 (en dehors de la .container/.row pour éviter l'imbrication Bootstrap)
+$guide_heading_level = 'h2';
+$guide_right_content_html = '';
+$guide_block_path = get_template_directory() . '/template/parts/guide-block.php';
+if (file_exists($guide_block_path)) {
+    require $guide_block_path;
+}
+?>
 
 <script>
 jQuery(document).ready(function() {
