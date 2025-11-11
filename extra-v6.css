@@ -128,15 +128,15 @@ h2:after{
   justify-items: stretch;  /* chaque carte occupe toute la colonne */
 }
 
-/* Cartes individuelles bleues */
+/* Cartes individuelles avec fond blanc pour meilleur contraste */
 .cs-steps .one-step {
-    background: rgba(0, 174, 239, 0.9);
+    background: rgba(255, 255, 255, 0.95);
     padding: 14px 16px;
     border-radius: 12px;
     text-align: left;
     transition: all 0.3s ease;
     cursor: pointer;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
     display: flex;
     flex-direction: row; /* icon left, text right */
     align-items: center;
@@ -149,8 +149,8 @@ h2:after{
 
 .cs-steps .one-step:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-    background: rgba(0, 174, 239, 1);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+    background: rgba(255, 255, 255, 1);
 }
 
 /* Toutes les étapes ont le même border-radius */
@@ -159,30 +159,27 @@ h2:after{
     border-radius: 12px;
 }
 
-/* Icônes et texte blancs par défaut */
-.cs-steps .one-step h3,
-.cs-steps .one-step i {
-    color: white !important;
-}
-
-.cs-steps .one-step i {
-  font-size: 28px;
-  margin: 0 10px 0 0;
-  display: inline-block;
-  flex-shrink: 0;
-}
-
+/* Icônes et texte en couleur pour meilleur contraste sur fond blanc */
 .cs-steps .one-step h3 {
-  font-size: 14px;
-  font-weight: 600;
-  margin: 0;
-  padding: 0;
-  line-height: 1.3;
+    color: #333333 !important;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0;
+    padding: 0;
+    line-height: 1.3;
 }
 
-/* Étape active - Bleu plus foncé */
+.cs-steps .one-step i {
+    color: #00aeef !important;
+    font-size: 28px;
+    margin: 0 10px 0 0;
+    display: inline-block;
+    flex-shrink: 0;
+}
+
+/* Étape active - Bleu vif avec texte blanc */
 .cs-steps .one-step.active {
-    background: rgba(0, 140, 200, 1);
+    background: rgba(0, 174, 239, 1);
     box-shadow: 0 6px 20px rgba(0, 174, 239, 0.4);
 }
 
@@ -192,24 +189,24 @@ h2:after{
     opacity: 1 !important;
 }
 
-/* Étapes non actives - Gris */
-.cs-steps .one-step:not(.active) {
-    background: rgba(180, 180, 180, 0.7);
+/* Étapes non actives - restent sur fond blanc avec icône et texte gris */
+.cs-steps .one-step:not(.active):not(.cs-completed) h3 {
+    color: #999999 !important;
+    opacity: 1 !important;
 }
 
-.cs-steps .one-step:not(.active) h3,
-.cs-steps .one-step:not(.active) i {
-    color: white !important;
-    opacity: 0.8;
+.cs-steps .one-step:not(.active):not(.cs-completed) i {
+    color: #cccccc !important;
+    opacity: 1 !important;
 }
 
-/* Étape complétée - Vert */
+/* Étape complétée - Vert avec texte blanc */
 .cs-steps .one-step.cs-completed {
-    background: rgb(89, 172, 119);
+    background: rgb(76, 175, 80);
 }
 
 .cs-steps .one-step.cs-completed:hover {
-    background: rgb(89, 172, 119);
+    background: rgb(67, 160, 71);
 }
 
 .cs-steps .one-step.cs-completed h3,
@@ -249,16 +246,14 @@ h2:after{
   padding: 20px 15px 60px !important; 
 }
 
-/* Step 2: glass effect on inputs (keep layout unchanged) */
+/* Step 2: champs avec fond blanc pour meilleur contraste */
 .step2 .forny #msform input:not([type="submit"]),
 .step2 .forny #msform textarea,
 .step2 .forny #msform select{
-  background: linear-gradient(180deg, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.25) 100%) !important;
-  border: 1px solid rgba(255,255,255,0.35) !important;
-  color: #ffffff !important;
+  background: rgba(255,255,255,0.95) !important;
+  border: 1px solid rgba(255,255,255,0.5) !important;
+  color: #333333 !important;
   border-radius: 16px !important;
-  -webkit-backdrop-filter: saturate(160%) blur(10px) !important;
-  backdrop-filter: saturate(160%) blur(10px) !important;
   box-shadow: 0 6px 18px rgba(0,0,0,0.15) !important;
 }
 
@@ -270,11 +265,11 @@ h2:after{
   box-shadow: 0 8px 22px rgba(0,174,239,0.25) !important;
 }
 
-/* Placeholder en blanc pour lisibilité sur le fond */
+/* Placeholder en gris pour lisibilité sur fond blanc */
 .step2 .forny #msform input::placeholder,
 .step2 .forny #msform textarea::placeholder{
-  color: #ffffff !important;
-  opacity: 0.85 !important;
+  color: #666666 !important;
+  opacity: 0.8 !important;
 }
 
 /* Dropdown options readable in list */
@@ -690,7 +685,7 @@ color: white !important;
   margin-bottom: 30px;
 }
 /* ===== Modern search form styling (Step 1) ===== */
-/* Container as a glassy pill bar */
+/* Container as a glassy pill bar with white background for better contrast */
 #msform #locationField{
   display: flex !important;
   align-items: center !important;
@@ -698,12 +693,10 @@ color: white !important;
   padding: 6px 8px !important;
   margin: 12px auto 2px !important;
   max-width: 980px !important;
-  background: linear-gradient(180deg, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.25) 100%) !important;
-  border: 1px solid rgba(255,255,255,0.35) !important;
+  background: rgba(255,255,255,0.95) !important;
+  border: 1px solid rgba(255,255,255,0.5) !important;
   border-radius: 40px !important;
-  -webkit-backdrop-filter: saturate(160%) blur(10px) !important;
-  backdrop-filter: saturate(160%) blur(10px) !important;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.15) !important;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2) !important;
 }
 
 /* Remove line breaks inside the flex bar */
@@ -714,7 +707,7 @@ color: white !important;
   background: transparent !important;
   border: 0 !important;
   outline: none !important;
-  color: #ffffff !important;
+  color: #333333 !important;
   height: 48px !important;
   line-height: normal !important; /* better vertical centering */
   padding: 10px 14px !important;  /* vertical padding to center text */
@@ -727,7 +720,7 @@ color: white !important;
   min-width: 0 !important;
   width: auto !important;
   float: none !important;
-  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3ccircle cx='11' cy='11' r='8'%3e%3c/circle%3e%3cline x1='21' y1='21' x2='16.65' y2='16.65'%3e%3c/line%3e%3c/svg%3e") !important;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%2300aeef' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3ccircle cx='11' cy='11' r='8'%3e%3c/circle%3e%3cline x1='21' y1='21' x2='16.65' y2='16.65'%3e%3c/line%3e%3c/svg%3e") !important;
   background-repeat: no-repeat !important;
   background-position: 12px center !important;
   background-size: 18px 18px !important;
@@ -744,8 +737,8 @@ color: white !important;
 
 /* Placeholder color */
 #msform #locationField input::placeholder{
-  color: #ffffff !important;
-  opacity: 0.75 !important;
+  color: #666666 !important;
+  opacity: 0.8 !important;
 }
 
 /* Submit button as a white rounded pill with blue text */
