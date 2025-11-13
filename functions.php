@@ -209,7 +209,7 @@ if (!is_admin()) {
   if (!empty(get_option('label_unite'))) {
     $label_unite = str_replace("\n", "<br>", get_option('label_unite'));
   } else {
-    $label_unite = "#Unité (facultatif";
+    $label_unite = "#Unité (facultatif)";
   }
   if (!empty(get_option('label_button_1')) && empty($buttons1)) {
     $label_button_1 = str_replace("\n", "<br>", get_option('label_button_1'));

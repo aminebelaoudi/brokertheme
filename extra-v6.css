@@ -161,7 +161,7 @@ h2:after{
 
 /* Icônes et texte en couleur pour meilleur contraste sur fond blanc */
 .cs-steps .one-step h3 {
-    color: #333333 !important;
+    color: #666666 !important;
     font-size: 14px;
     font-weight: 600;
     margin: 0;
@@ -293,6 +293,8 @@ h2:after{
   text-align: left;
   color: white;
   padding: 0 10px;
+  font-size: 10px;
+  font-weight: 400;
 }
 
 @media (min-width: 1281px){
