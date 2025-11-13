@@ -293,8 +293,8 @@ h2:after{
   text-align: left;
   color: white;
   padding: 0 10px;
-  font-size: 10px;
-  font-weight: 400;
+  font-size: 12px !important;
+  font-weight: 500 !important;
 }
 
 @media (min-width: 1281px){
