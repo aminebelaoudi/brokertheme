@@ -27,7 +27,7 @@
 }
 
 html{
-    background-image: url('https://storage.googleapis.com/msgsndr/FqqkdWQ0F0QPYOpLYXnz/media/690e1e3027678e347fe5f23f.webp') !important;
+    background-image: url('https://test2.evaluationpropriete.ca/wp-content/uploads/sites/89/2025/11/banner-imagev2_1.png') !important;
     background-size: cover !important;
     background-repeat: no-repeat !important;
     background-position: top center !important;
@@ -86,7 +86,15 @@ html, body{
 
 .cs-white-text{
     color: white !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7), 0 0 10px rgba(0, 0, 0, 0.5) !important;
+    font-weight: 500 !important;
 }   
+
+/* Footer text without shadow - same element has both classes */
+.texte-footer.cs-white-text{
+    text-shadow: none !important;
+    font-weight: 400 !important;
+}
 
 h2:before,
 h2:after{
@@ -161,7 +169,7 @@ h2:after{
 
 /* Icônes et texte en couleur pour meilleur contraste sur fond blanc */
 .cs-steps .one-step h3 {
-    color: #666666 !important;
+    color: #565656 !important;
     font-size: 14px;
     font-weight: 600;
     margin: 0;
@@ -196,7 +204,7 @@ h2:after{
 }
 
 .cs-steps .one-step:not(.active):not(.cs-completed) i {
-    color: #cccccc !important;
+    color: #999999 !important;
     opacity: 1 !important;
 }
 
@@ -685,6 +693,30 @@ color: white !important;
   font-size: 20px;
   margin-top: 40px;
   margin-bottom: 30px;
+}
+
+/* Glass effect background for step1 h2 subtitle */
+.step1 h2.cs-white-text {
+  background: rgba(0, 0, 0, 0.4) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  padding: 20px 30px !important;
+  border-radius: 16px !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
+  margin: 20px auto !important;
+  max-width: 980px !important;
+  width: 100% !important;
+  display: block !important;
+  text-align: center !important;
+}
+
+@media (max-width: 767px) {
+  .step1 h2.cs-white-text {
+    padding: 16px 20px !important;
+    font-size: 16px !important;
+    max-width: 96% !important;
+  }
 }
 /* ===== Modern search form styling (Step 1) ===== */
 /* Container as a glassy pill bar with white background for better contrast */
